@@ -17,6 +17,27 @@ switch ($action) {
     break;
 
     case "productos":
+        $table = "productos";
+        $query = "SELECT     * FROM      $table ";
+        $rows=ejecutarSQL($query,NULL);
+        if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
+            print '<table><thead>';
+            foreach ($rows as $row) {
+                print "<tr>";
+                $i = 0;
+                foreach ($row as $key => $val) {
+                    if ($i == 1)
+                        echo "<th>", $val,"</th>";
+                    if ($i == 2){
+                        echo "<td>", "<img src='$val' id='logo'>", "<input type='button' value='carrito'>", "</td>";
+                    }
+                    $i+=1;
+                }
+                print "</tr>";
+            }
+            print "</table>";
+        }
+        break;
 
     break;
 
