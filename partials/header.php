@@ -13,6 +13,6 @@
 
 <body>
 	<header>
-		<img src="./img/Logo-ACCE.gif" id="logo" alt="logo" />
-		<p id="eslogan">Alumnas de Ingeniería Informática</p>
+		<img src="./img/musica.jpg" id="logo" alt="logo" />
+		<b><p id="eslogan">Tienda de instrumentos</p></b>
 	</header>
