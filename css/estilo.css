@@ -1,0 +1,30 @@
+nav li {
+    display: inline;
+    padding: 0 40px 0 0;
+}
+
+section#blog {
+    float: right;
+}
+
+.valoracion-usuario {
+    font-style: italic;
+}
+
+.botonleermas {
+    font-size: 80%;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.izq {
+    float: left;
+    margin-top: 0px;
+    text-align: left;
+}
+
+.der {
+    margin-top: 0px;
+    text-align: right;
+}
