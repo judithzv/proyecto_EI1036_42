@@ -9,7 +9,16 @@ else $action = "home";
 
 switch ($action) {
     case "home":
+        print '<table>';
+        print '<tr><td>';
+        print 'Somos Judith Zorío Ventura y Núria Moreno Chamorro, alumnas de la Universidad Jaume I de Castellón, actualmente estamos
+        cursando Ingeniería informática. Hemos decidido implementar una tienda de instrumentos musicales.';
+        print '</tr></td>';
+        print '</table>';
 
+    break;
+
+    case "registro":
     break;
 
     case "carrito":
@@ -29,7 +38,10 @@ switch ($action) {
                     if ($i == 1)
                         echo "<th>", $val,"</th>";
                     if ($i == 2){
-                        echo "<td>", "<img src='$val' id='logo'>", "<input type='button' value='carrito'>", "</td>";
+                        echo "<td>", "<img src='$val' id='lista'>", "</td>";
+                    }
+                    if ($i == 2){
+                    echo "<td>","<input type='button' value='Añadir al carrito'>", "</td>";
                     }
                     $i+=1;
                 }
