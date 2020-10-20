@@ -9,6 +9,7 @@ else $action = "home";
 
 $id_compra = 0;
 $id_cliente = 0;
+$central = "";
 
 switch ($action) {
     case "home":
@@ -55,11 +56,16 @@ switch ($action) {
             print_r($a);
             $id_compra += 1;
 
-    break;
+        break;
+
+        case "registro":
+            $central = "/partials/register.php";
+        break;
 
     default:
         $data["error"] = "Accion No permitida";
 }
 
+if ($central <> "") include(dirname(__FILE__).$central);
 include(dirname(__FILE__)."/partials/footer.php");
 ?>

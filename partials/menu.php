@@ -4,7 +4,7 @@
 			<a href="./portal.php?action=home">Quiénes somos</a>
 		</li>
 		<li>
-			<a href="./portal.php?action=home">Registro</a>
+			<a href="?action=registro">Registro</a>
 		</li>
 		<li>
 			<a href="?action=productos">Productos</a>
