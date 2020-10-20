@@ -7,6 +7,9 @@ include(dirname(__FILE__)."/partials/menu.php");
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
 
+$id_compra = 0;
+$id_cliente = 0;
+
 switch ($action) {
     case "home":
 
@@ -25,11 +28,16 @@ switch ($action) {
             foreach ($rows as $row) {
                 print "<tr>";
                 $i = 0;
+                $id = "";
                 foreach ($row as $key => $val) {
+                    if ($i == 0)
+                        $id = $val;
                     if ($i == 1)
                         echo "<th>", $val,"</th>";
-                    if ($i == 2){
-                        echo "<td>", "<img src='$val' id='logo'>", "<input type='button' value='carrito'>", "</td>";
+                    if ($i == 2)
+                        echo "<th>", $val, "€", "</th>";
+                    if ($i == 3){
+                        echo "<td>", "<img src='$val' id='logo'>", "<a href='./portal.php?action=add&id_producto=$id'> Carrito", "</td>";
                     }
                     $i+=1;
                 }
@@ -38,6 +46,13 @@ switch ($action) {
             print "</table>";
         }
         break;
+
+        case "add":
+            $table="compras";
+            $query= "INSERT $table VALUES (?,?,?,?)";
+            $a = array($id_compra, $id_cliente, $_GET["id_producto"], date());
+            print_r($a);
+            $id_compra += 1;
 
     break;
 
