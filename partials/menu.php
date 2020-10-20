@@ -7,6 +7,9 @@
 			<a href="?action=registro">Registro</a>
 		</li>
 		<li>
+			<a href="?action=login">Login</a>
+		</li>
+		<li>
 			<a href="?action=productos">Productos</a>
 		</li>
 		<li>

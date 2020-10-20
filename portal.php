@@ -62,6 +62,39 @@ switch ($action) {
             $central = "/partials/register.php";
         break;
 
+        case "registrar":
+            $datos = $_REQUEST;
+            $table = "clientes";
+
+        if (count($_REQUEST) < 6) {
+            $data["error"] = "No has rellenado el formulario correctamente";
+            return;
+        }
+            $query = "INSERT INTO     $table (name, surnames, username, password, mail, address)
+                                VALUES (?,?,?,?,?,?);";
+                            
+            $a=array($_REQUEST["name"], $_REQUEST["surnames"], $_REQUEST["username"], $_REQUEST["password"], $_REQUEST["mail"], $_REQUEST["address"]);
+            ejecutarSQL($query, $a);
+
+        break;
+
+        case "login":
+            $central = "/partials/login.php";
+        break;
+
+        case "acceder":
+            $table = "clientes";
+            $user = $_REQUEST["username"];
+            $password = $_REQUEST["password"];
+            $query = "SELECT * FROM $table WHERE username = ? and password = ?";
+            $a = array($user, $password);
+            $rows=ejecutarSQL($query, $a);
+            if (empty($rows)) {
+                $data["error"] = "El usuario o la contraseña no son correctos.";
+                $central = "/partials/login.php";
+            }
+        break;
+
     default:
         $data["error"] = "Accion No permitida";
 }
