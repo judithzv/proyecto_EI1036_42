@@ -8,12 +8,19 @@
  * Template Version: 1.0.0
  * GitHub Theme URI: https://github.com/dllido/EI1036_42_public/tree/master/P1
  */
+ 
  body {
     font-family: arial;
     background-image: url('../img/fondo.jpg');
     max-width: 1000px;
     margin: 0 auto;
     /* Centrado */
+}
+button{
+    background-image: url('../img/carro.jpg');
+    max-width: 1000px;
+    margin: 0 auto;
+
 }
 
 header {
@@ -59,6 +66,10 @@ h2 {
     max-width: 15%;
     min-width: 5%;
 }
+#lista {
+    max-width: 20%;
+    min-width: 40%;
+}
 
 #eslogan {
     float: left;
@@ -74,13 +85,14 @@ h2 {
     right: 10%;
 }
 
-table { background-color:#FFFFE0;
+table { background-color:#ffffff;
     border-collapse:collapse;
+    font-family: "Lucida Console", Courier, monospace;
     color:#000;
     font-size:18px;
     border:1px;
     margin: 10px auto; }
-th { background-color:#BDB76B; }
+th { background-color:#ffffff; }
 td, th { border: 1px solid;padding:1px;width: 10%; }
 td { border-bottom:1px dotted #BDB76B; }
 

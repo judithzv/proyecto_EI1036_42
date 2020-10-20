@@ -1,7 +1,10 @@
 <nav>
 	<ul>
 		<li>
-			<a href="./portal.php?action=home">Home</a>
+			<a href="./portal.php?action=home">Quiénes somos</a>
+		</li>
+		<li>
+			<a href="./portal.php?action=home">Registro</a>
 		</li>
 		<li>
 			<a href="?action=productos">Productos</a>
