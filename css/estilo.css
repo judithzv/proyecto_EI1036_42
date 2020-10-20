@@ -14,13 +14,8 @@
     background-image: url('../img/fondo.jpg');
     max-width: 1000px;
     margin: 0 auto;
-    /* Centrado */
-}
-button{
-    background-image: url('../img/carro.jpg');
-    max-width: 1000px;
-    margin: 0 auto;
 
+    /* Centrado */
 }
 
 header {
@@ -48,11 +43,39 @@ section {
 }
 
 h1 {
-    font-size: 120%;
-    margin-top: 0;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 30px;
+    margin-top: 10px;
     margin-bottom: 10px;
-    color: #666;
+    color: rgb(0, 0, 0);
 }
+#container {
+    background-color: #aca1a1;
+    padding: 5px 20px 15px 20px;
+    border: 2px solid #bd6830;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  #mincontainer {
+    background-image: url('../img/fondo_degradado.jpg');
+    height:450px;
+    width:450px;
+    border: 2px solid  #bd6830;
+    border-radius: 3px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    
+  }
+  legend{
+    margin-top: 10;
+    margin-bottom: 10px;
+    font-family: "Lucida Console", Courier, monospace;
+  }
 
 h2 {
     font-weight: bold;
