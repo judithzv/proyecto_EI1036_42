@@ -8,9 +8,14 @@
  * Template Version: 1.0.0
  * GitHub Theme URI: https://github.com/dllido/EI1036_42_public/tree/master/P1
  */
- 
+ #l{
+    font-family: "Impact, Charcoal, sans-serif";
+    color: #5eff00;
+    font-size: 20px;
+ }
+
+
  body {
-    font-family: arial;
     background-image: url('../img/fondo.jpg');
     max-width: 1000px;
     margin: 0 auto;
@@ -71,22 +76,71 @@ h1 {
     font-size: 20px;
     
   }
+  #botonaceptar{
+    font-family: "Lucida Console", Courier, monospace;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 6px;
+    align-self: center;
+
+
+  }
+  #botondeshacer{
+    font-family: "Lucida Console", Courier, monospace;
+    background-color: #c92929; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 6px;
+    align-self: center;
+
+  }
+  input{
+    width: 250px;
+  }
+  #carrito{
+    background-color:  #55cf0e;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px auto; 
+    border-radius: 6px;
+  }
+
+
   legend{
     margin-top: 10;
     margin-bottom: 10px;
     font-family: "Lucida Console", Courier, monospace;
   }
 
-h2 {
-    font-weight: bold;
-    font-style: italic;
-    margin-top: 0;
-    margin-bottom: 5px;
+h3 {
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    font-size: 30px;
 }
 
 #logo {
     float: left;
-    max-width: 15%;
+    max-width: 2%;
     min-width: 5%;
 }
 #lista {
@@ -99,7 +153,7 @@ h2 {
     margin: 5% 5%;
     font-size: 50px;
     font-family: Impact, Charcoal, sans-serif;
-    color: #080a09;
+    color: #000000;
 }
 
 #registro {
@@ -113,11 +167,9 @@ table { background-color:#ffffff;
     font-family: "Lucida Console", Courier, monospace;
     color:#000;
     font-size:18px;
-    border:1px;
+    border:1px solid;
     margin: 10px auto; }
-th { background-color:#ffffff; }
-td, th { border: 1px solid;padding:1px;width: 10%; }
-td { border-bottom:1px dotted #BDB76B; }
+td, th { width: 500px; height: 100px; margin: 10px 10px auto; text-align: center; border-bottom: 1px solid #ddd; }
 
 
 #registro a:hover {

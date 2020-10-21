@@ -29,8 +29,8 @@
 		<br/>
 		<input type="text" name="address" class="item_requerid" size="20" maxlength="100">
 		<br/>
-		<p><input type="submit" value="Enviar">
-		<input type="reset" value="Deshacer">
+		<p><i class="fa fa-paper-plane" aria-hidden="true"></i><input type="submit" value="Enviar" id="botonaceptar">
+		<i class="fa fa-ban" aria-hidden="true"></i><input type="reset" value="Deshacer" id="botondeshacer">
 		</p>
 	</form>
 </div>

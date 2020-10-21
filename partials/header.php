@@ -13,6 +13,6 @@
 
 <body>
 	<header>
-		<img src="./img/musica.jpg" id="logo" alt="logo" />
-		<b><p id="eslogan">Tienda de instrumentos</p></b>
+		<img src="./img/fondo2.gif" id="logo" alt="logo" />
+		<b><p id="eslogan">Tienda de instrumentos musicales</p></b>
 	</header>
