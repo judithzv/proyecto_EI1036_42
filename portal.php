@@ -55,8 +55,17 @@ switch ($action) {
         break;
 
         case "login":
-            $central = "/partials/login.php";
+            if (empty($_COOKIE["login"])){
+                $central = "./partials/login.php";
+            }
+
+            else {
+                $central = "./partials/session.php";
+            }
         break;
+
+        case "logout":
+            setcookie("login", "", time()-3600);
 
         case "acceder":
             $table = "clientes";
@@ -68,6 +77,11 @@ switch ($action) {
             if (empty($rows)) {
                 $data["error"] = "El usuario o la contraseña no son correctos.";
                 $central = "/partials/login.php";
+            }
+
+            else{
+                setcookie("login", $user, time()+3600);
+                $central = "./quienesSomos.php";
             }
         break;
 
