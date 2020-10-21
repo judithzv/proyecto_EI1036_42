@@ -2,7 +2,7 @@
 
 include(dirname(__FILE__)."/includes/pdo_postgres0.php");
 include(dirname(__FILE__)."/partials/header.php");
-include(dirname(__FILE__)."/partials/menu.php");
+include(dirname(__FILE__)."/partials/newmenu.php");
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
@@ -66,6 +66,8 @@ switch ($action) {
 
         case "logout":
             setcookie("login", "", time()-3600);
+            $central = "./quienesSomos.php";
+        break;
 
         case "acceder":
             $table = "clientes";
@@ -82,6 +84,7 @@ switch ($action) {
             else{
                 setcookie("login", $user, time()+3600);
                 $central = "./quienesSomos.php";
+                
             }
         break;
 

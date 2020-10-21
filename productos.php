@@ -1,6 +1,5 @@
 <?php
 echo "<main>";
-echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>";
 echo "<div id='container'>";
 $table = "productos";
 $query = "SELECT     * FROM      $table ";
@@ -20,7 +19,7 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
                 echo "<th>", $val, "€", "</th>";
             if ($i == 3){
                 echo "<td>", "<img src='$val' id='lista'>", "</td>";
-                echo "<td>", "<a href='./portal.php?action=add&id_producto=$id' value='Carrito' id='carrito' >Carrito <i class='fa fa-shopping-cart'></i></a>",
+                echo "<td>", "<a href='./portal.php?action=add&id_producto=$id' value='Carrito' id='carrito' >Comprar <i class='fa fa-shopping-cart'></i></a>",
                 "</td>";
             }
             $i+=1;
