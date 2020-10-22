@@ -29,8 +29,8 @@ switch ($action) {
 
     break;
 
-    case "productos":
-        $central = "./productos.php";
+    case "info":
+        $central = "./quienesSomos.php";
         break;
 
         case "add":
