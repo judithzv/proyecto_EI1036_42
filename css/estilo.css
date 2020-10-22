@@ -18,7 +18,9 @@
     color: #000000;
     font-size: 50px;
     display: inline;
-    padding: 50px 50px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
     width: 100px;
     height: 100px;
  }
@@ -27,11 +29,12 @@
     color: #000000;
     font-size: 50px;
     display: inline;
-    padding-bottom: 50px;
+    padding-left: 50px;
     float: right;
     width: 100px;
     height: 100px;
  }
+
 
  body {
     background-image: url('../img/fondo.jpg');
@@ -47,13 +50,18 @@ header {
     padding: 5px 5px 5px 5px;
 }
 
-nav, footer {
+footer {
     clear: both;
     margin-bottom: 10px;
     padding: 4px;
     text-align: center;
     background-color: #bd6830;
     font-size: 80%;
+}
+#margen{
+    height: 50px;
+    background-color: #bd6830;
+    
 }
 
 section {
@@ -186,51 +194,8 @@ table { background-color:#ffffff;
     color:#000;
     font-size:18px;
     border:1px solid;
-    margin: 10px auto; }
+    text-align: center;
+    margin: 80px auto; }
 td, th { width: 500px; height: 100px; margin: 10px 10px auto; text-align: center; border-bottom: 1px solid #ddd; }
 
 
-#registro a:hover {
-    color: blue;
-}
-
-nav a {
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
-
-nav a:hover {
-    color: #aaaaaa;
-}
-
-nav li {
-    display: inline;
-    padding: 0 40px 0 0;
-}
-
-section#blog {
-    float: right;
-}
-
-.valoracion-usuario {
-    font-style: italic;
-}
-
-.botonleermas {
-    font-size: 80%;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: right;
-}
-
-.izq {
-    float: left;
-    margin-top: 0px;
-    text-align: left;
-}
-
-.der {
-    margin-top: 0px;
-    text-align: right;
-}
