@@ -8,11 +8,7 @@
  * Template Version: 1.0.0
  * GitHub Theme URI: https://github.com/dllido/EI1036_42_public/tree/master/P1
  */
- #l{
-    font-family: "Impact, Charcoal, sans-serif";
-    color: #5eff00;
-    font-size: 20px;
- }
+
  #nm{
     font-family: "Impact, Charcoal, sans-serif";
     color: #000000;
@@ -29,12 +25,18 @@
     color: #000000;
     font-size: 50px;
     display: inline;
-    padding-left: 50px;
+    padding-left: 10px;
     float: right;
     width: 100px;
     height: 100px;
  }
+ #usu{
+     font-size: 30px;
+     float: right;
+     padding-top: 10px;
+     font-family: Impact, Charcoal, sans-serif;
 
+ }
 
  body {
     background-image: url('../img/fondo.jpg');
@@ -56,12 +58,12 @@ footer {
     padding: 4px;
     text-align: center;
     background-color: #bd6830;
-    font-size: 80%;
+    font-size: 100%;
 }
 #margen{
-    height: 50px;
+    height: 40px;
     background-color: #bd6830;
-    
+    font-size: 25px;    
 }
 
 section {
@@ -199,3 +201,13 @@ table { background-color:#ffffff;
 td, th { width: 500px; height: 100px; margin: 10px 10px auto; text-align: center; border-bottom: 1px solid #ddd; }
 
 
+.izq {
+    float: left;
+    margin-top: 0px;
+    text-align: left;
+}
+
+.der {
+    margin-top: 0px;
+    text-align: right;
+}
