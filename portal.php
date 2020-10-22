@@ -22,11 +22,10 @@ $central = "";
 switch ($action) {
     case "home":
         $central = "./productos.php";
-
     break;
 
     case "carrito":
-
+        $central = "./carrito.php";
     break;
 
     case "info":
@@ -34,12 +33,43 @@ switch ($action) {
         break;
 
         case "add":
-            $table="compras";
-            $query= "INSERT $table VALUES (?,?,?,?)";
-            $a = array($id_compra, $id_cliente, $_GET["id_producto"], date());
-            print_r($a);
-            $id_compra += 1;
+            $carrito = "";
+            if (!empty($_COOKIE["carrito"])){
+                $carrito = $_COOKIE["carrito"];
+                $carrito .= "$";
+                $carrito .= $_GET["id_producto"];
+            }
+            else{
+                $carrito = $_GET["id_producto"];
+            }
+            setcookie("carrito", $carrito, time()+3600);
+            $central = "./productos.php";
 
+        break;
+
+        case "comprar":
+            $table="compras";
+            $carrito = $_COOKIE["carrito"];
+            $carrito = explode("$", $carrito);
+            $login = $_COOKIE["login"];
+            $query = "SELECT client_id FROM clientes WHERE login=$login";
+            $rows=ejecutarSQL($query,NULL);
+            foreach($rows as $row) {
+                foreach($row as $key -> $val)
+                    $id_cliente = $value;
+            }
+            foreach($carrito as $id){
+                $query2 = "SELECT price FROM productos WHERE product_id=$id";
+                $rows=ejecutarSQL($query2,NULL);
+                $price=0;
+                foreach($rows as $row) {
+                    foreach($row as $key -> $val)
+                        $price = $val;
+                }
+                $query3 = "INSERT INTO compras(client_id, product_id, amount, date) VALUES(?,?,?,?)"; 
+                $a = array($id_cliente, $id, $price, date());
+                ejecutarSQL($query3,NULL);
+            }
         break;
 
         case "registro":
@@ -60,16 +90,12 @@ switch ($action) {
             $a=array($_REQUEST["name"], $_REQUEST["surnames"], $_REQUEST["username"], $_REQUEST["password"], $_REQUEST["mail"], $_REQUEST["address"]);
             ejecutarSQL($query, $a);
 
+            $central = "./productos.php";
+
         break;
 
         case "login":
-            if (empty($_COOKIE["login"])){
-                $central = "./partials/login.php";
-            }
-
-            else {
-                $central = "./partials/session.php";
-            }
+            $central = "./partials/login.php";
         break;
 
         case "logout":
