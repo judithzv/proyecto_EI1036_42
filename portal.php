@@ -40,36 +40,46 @@ switch ($action) {
                 $carrito .= $_GET["id_producto"];
             }
             else{
-                $carrito = $_GET["id_producto"];
+                $carrito = "$".$_GET["id_producto"];
             }
             setcookie("carrito", $carrito, time()+3600);
-            $central = "./productos.php";
+            setcookie('añadido', 'añadido', time()+3600);
+            header("Refresh:0, url=./portal.php?action=home");
 
         break;
 
-        case "comprar":
-            $table="compras";
+        case "delete":
+            $id_producto = $_GET["id_producto"];
+            $carrito = $_COOKIE["carrito"];
+            $from = "$".$id_producto;
+            $from = '/'.preg_quote($from, '/').'/';
+            $to = "";
+            $carrito = preg_replace($from, $to,  $carrito, 1);
+            setcookie("carrito", $carrito, time()+3600);
+            setcookie('eliminado', "eliminado", time()+3600);
+            header("Refresh: 0, url=./portal.php?action=carrito");
+        break; 
+
+        case "pagar":
             $carrito = $_COOKIE["carrito"];
             $carrito = explode("$", $carrito);
+            unset($carrito[0]);
             $login = $_COOKIE["login"];
-            $query = "SELECT client_id FROM clientes WHERE login=$login";
-            $rows=ejecutarSQL($query,NULL);
-            foreach($rows as $row) {
-                foreach($row as $key -> $val)
-                    $id_cliente = $value;
+            $query = "SELECT client_id FROM clientes WHERE username='$login'";
+            $rows = ejecutarSQL($query, NULL);
+            $client_id = "";
+            foreach($rows as $row){
+                $client_id = $row["client_id"];
             }
             foreach($carrito as $id){
-                $query2 = "SELECT price FROM productos WHERE product_id=$id";
-                $rows=ejecutarSQL($query2,NULL);
-                $price=0;
-                foreach($rows as $row) {
-                    foreach($row as $key -> $val)
-                        $price = $val;
-                }
-                $query3 = "INSERT INTO compras(client_id, product_id, amount, date) VALUES(?,?,?,?)"; 
-                $a = array($id_cliente, $id, $price, date());
-                ejecutarSQL($query3,NULL);
+                $query1 = "INSERT INTO compras (client_id, product_id, date) VALUES(?, ?, ?, ?)";
+                $a = array($client_id, $id, date("Y/m/d"));
+                ejecutarSQL($query1, $a);
+                setcookie("carrito", "", time()-3600);
             }
+
+            $result='<div class="alert alert-success">Tu compra ha sido procesada con éxito</div>';
+            echo $result;
         break;
 
         case "registro":
