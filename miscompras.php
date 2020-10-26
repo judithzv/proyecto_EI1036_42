@@ -1,17 +1,26 @@
 <?php
 echo "<main>";
-if(!empty($_COOKIE['añadido'])){
-    $result='<div class="alert alert-success alert-dismissable">El producto ha sido añadido a la cesta correctamente <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>';
-    echo $result;
-    setcookie('añadido', "", time()-3600);
-} 
 echo "<div id='container'>";
 
-$table = "productos";
-$query = "SELECT     * FROM      $table ";
+$login = $_COOKIE["login"];
+$query = "SELECT client_id FROM clientes WHERE username='$login'";
+$rows = ejecutarSQL($query, NULL);
+$client_id = "";
+foreach($rows as $row){
+    $client_id = $row["client_id"];
+}
+
+$query = "SELECT   * FROM   compras JOIN productos using (product_id) WHERE client_id=$client_id ";
 $rows=ejecutarSQL($query,NULL);
+
 if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
     print '<table><thead>';
+    print '<tr>';
+    echo "<th>", "</th>";
+    echo "<th>", "Producto", "</th>";
+    echo "<th>", "Cantidad", "</th>";
+    echo "<th>", "Fecha de compra", "</th>";
+    print '</tr>';
     foreach ($rows as $row) {
         print "<tr>";
         $i = 0;
@@ -19,15 +28,14 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
         $id = $row['product_id'];
         $price = $row['price'];
         $img = $row['image'];
+        $fech=$row['date'];
         echo "<td>", "<img src=$img id='lista'>", "</td>";
         echo "<th>", $row['name'],"</th>";
         echo "<th>", $price, "€", "</th>";
-        echo "<td>", "<a href='./portal.php?action=add&id_producto=$id' value='Carrito' id='carrito' >Añadir <i class='fa fa-shopping-cart'></i></a>",
-        "</td>";
+        echo "<th>", $fech, "</th>";;
         print "</tr>";
     }
     print "</table>";
 }
-echo "/div>";
 echo "</main>";
 ?>

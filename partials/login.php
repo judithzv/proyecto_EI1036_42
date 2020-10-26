@@ -1,4 +1,10 @@
 <main>
+	<?php
+if(!empty($_COOKIE['error_login'])){
+    $result='<div class="alert alert-danger alert-dismissable">El usuario o la contraseña introducidos son incorrectos <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>';
+    echo $result;
+    setcookie('error_login', "", time()-3600);
+} ?>
 <div id="container">
 <div id="mincontainer">
 	<h1>Accede a tu cuenta</h1>

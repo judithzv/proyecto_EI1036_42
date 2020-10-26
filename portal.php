@@ -28,6 +28,16 @@ switch ($action) {
         $central = "./carrito.php";
     break;
 
+    case "miscompras":
+        $central = "./miscompras.php";
+    break;
+
+    case "tarjeta":
+        $central = "./formulario.php";
+    break;
+        
+
+
     case "info":
         $central = "./quienesSomos.php";
         break;
@@ -72,7 +82,8 @@ switch ($action) {
                 $client_id = $row["client_id"];
             }
             foreach($carrito as $id){
-                $query1 = "INSERT INTO compras (client_id, product_id, date) VALUES(?, ?, ?, ?)";
+                echo $client_id;
+                $query1 = "INSERT INTO compras (client_id, product_id, date) VALUES(?, ?, ?)";
                 $a = array($client_id, $id, date("Y/m/d"));
                 ejecutarSQL($query1, $a);
                 setcookie("carrito", "", time()-3600);
@@ -122,8 +133,9 @@ switch ($action) {
             $a = array($user, $password);
             $rows=ejecutarSQL($query, $a);
             if (empty($rows)) {
-                $data["error"] = "El usuario o la contraseña no son correctos.";
+                setcookie("error_login", "error", time()+3600);
                 $central = "/partials/login.php";
+                header("Refresh:0, url=./portal.php?action=login");
             }
 
             else{

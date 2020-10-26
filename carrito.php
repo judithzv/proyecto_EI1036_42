@@ -37,7 +37,7 @@ if (!empty($_COOKIE["carrito"])){
         $rows=ejecutarSQL($query2,NULL);
         foreach($rows as $row) {
             $id = $row['product_id'];
-            $price = $row['price'];
+            $price = $row['price']*$cantidad;
             $importe += $price;
             $img = $row['image'];
             echo "<td>", "<img src=$img id='lista'>", "</td>";
@@ -54,7 +54,7 @@ if (!empty($_COOKIE["carrito"])){
     echo "<th>", "</th>";
     echo "<th>", "Total (", $cantidad_total, " productos)",  "</th>";
     echo "<th>", $importe, "€", "</th>";
-    echo "<th>", "<a href='./portal.php?action=pagar' value='pagar' id='pagar' >Pagar <i class='fa fa-credit-card'></i></a>",
+    echo "<th>", "<a href='./portal.php?action=tarjeta' value='pagar' id='pagar' >Pagar <i class='fa fa-credit-card'></i></a>",
     "</th>";
     print "</tr>";
     print "</table>";
@@ -64,5 +64,6 @@ else{
     $result='<div class="alert alert-info">Todavía no se ha añadido ningún producto a la cesta</div>';
     echo $result;
 }
+echo "/div";
 echo "</main>";
 ?>
