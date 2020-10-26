@@ -28,6 +28,6 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
     }
     print "</table>";
 }
-echo "/div>";
+echo "</div>";
 echo "</main>";
 ?>

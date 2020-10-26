@@ -27,7 +27,7 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
     print '<tr>';
     echo "<th>", "</th>";
     echo "<th>", "Producto", "</th>";
-    echo "<th>", "Cantidad", "</th>";
+    echo "<th>", "Precio", "</th>";
     echo "<th>", "Fecha de compra", "</th>";
     print '</tr>';
     foreach ($rows as $row) {
