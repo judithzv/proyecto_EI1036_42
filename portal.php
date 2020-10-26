@@ -21,25 +21,25 @@ $central = "";
 
 switch ($action) {
     case "home":
-        $central = "./productos.php";
+        $central = "./partials/productos.php";
     break;
 
     case "carrito":
-        $central = "./carrito.php";
+        $central = "./partials/carrito.php";
     break;
 
     case "miscompras":
-        $central = "./miscompras.php";
+        $central = "./partials/miscompras.php";
     break;
 
     case "tarjeta":
-        $central = "./formulario.php";
+        $central = "./partials/formulario.php";
     break;
         
 
 
     case "info":
-        $central = "./quienesSomos.php";
+        $central = "./partials/quienesSomos.php";
         break;
 
         case "add":
@@ -111,7 +111,7 @@ switch ($action) {
             $a=array($_REQUEST["name"], $_REQUEST["surnames"], $_REQUEST["username"], $_REQUEST["password"], $_REQUEST["mail"], $_REQUEST["address"]);
             ejecutarSQL($query, $a);
 
-            $central = "./productos.php";
+            $central = "./partials/login.php";
 
         break;
 
@@ -121,7 +121,7 @@ switch ($action) {
 
         case "logout":
             setcookie("login", "", time()-3600);
-            $central = "./productos.php";
+            $central = "./partials/productos.php";
             header("Refresh:0, url=./portal.php?action=home");
         break;
 
@@ -140,7 +140,7 @@ switch ($action) {
 
             else{
                 setcookie("login", $user, time()+3600);
-                $central="./productos.php";
+                $central="./partials/productos.php";
                 header("Refresh:0, url=./portal.php?action=home");
                 
             }
