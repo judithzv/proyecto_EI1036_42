@@ -1,6 +1,6 @@
 <?php
 echo "<main>";
-echo "<div id='container'>";
+
 
 $login = $_COOKIE["login"];
 $query = "SELECT client_id FROM clientes WHERE username='$login'";
@@ -12,6 +12,15 @@ foreach($rows as $row){
 
 $query = "SELECT   * FROM   compras JOIN productos using (product_id) WHERE client_id=$client_id ";
 $rows=ejecutarSQL($query,NULL);
+
+if (empty($rows)){
+$result='<div class="alert alert-info">Todavía no se han comprado productos</div>';
+echo $result;
+}
+else{
+    echo "<div id='container'>";
+
+
 
 if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
     print '<table><thead>';
@@ -37,5 +46,7 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
     }
     print "</table>";
 }
+}
+
 echo "</main>";
 ?>
