@@ -43,18 +43,24 @@ switch ($action) {
         break;
 
         case "add":
-            $carrito = "";
-            if (!empty($_COOKIE["carrito"])){
-                $carrito = $_COOKIE["carrito"];
-                $carrito .= "$";
-                $carrito .= $_GET["id_producto"];
+            if(empty( $_COOKIE["login"])) {
+                setcookie('no_login', 'no_login', time()+3600);
+                header("Refresh:0, url=./portal.php?action=login");
             }
             else{
-                $carrito = "$".$_GET["id_producto"];
-            }
-            setcookie("carrito", $carrito, time()+3600);
-            setcookie('añadido', 'añadido', time()+3600);
-            header("Refresh:0, url=./portal.php?action=home");
+                $carrito = "";
+                if (!empty($_COOKIE["carrito"])){
+                    $carrito = $_COOKIE["carrito"];
+                    $carrito .= "$";
+                    $carrito .= $_GET["id_producto"];
+                }
+                else{
+                    $carrito = "$".$_GET["id_producto"];
+                }
+                setcookie("carrito", $carrito, time()+3600);
+                setcookie('añadido', 'añadido', time()+3600);
+                header("Refresh:0, url=./portal.php?action=home");
+        }
 
         break;
 

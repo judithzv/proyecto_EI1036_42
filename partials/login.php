@@ -4,6 +4,11 @@ if(!empty($_COOKIE['error_login'])){
     $result='<div class="alert alert-danger alert-dismissable">El usuario o la contraseña introducidos son incorrectos <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>';
     echo $result;
     setcookie('error_login', "", time()-3600);
+} 
+if(!empty($_COOKIE['no_login'])){
+    $result='<div class="alert alert-success alert-dismissable">Inicia sesión para poder añadir el producto al carrito <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>';
+    echo $result;
+    setcookie('no_login', "", time()-3600);
 } ?>
 <div id="container">
 <div id="mincontainer">
