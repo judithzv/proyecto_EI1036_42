@@ -52,9 +52,7 @@ switch ($action) {
             else{
                 if (empty($_SESSION["carrito"])){
                     $carrito = array();
-                    $carrito[$id_producto] = 1;
-                    $_SESSION["carrito"]=$carrito;
-                }
+                    $carrito[$id_producto] = 1;                }
                 else{
                     $carrito = $_SESSION["carrito"];
                     if (empty($carrito[$id_producto])){
@@ -93,7 +91,6 @@ switch ($action) {
                 $client_id = $row["client_id"];
             }
             foreach($carrito as $id => $cantidad){
-                echo $client_id;
                 for ($i = 0; $i < $cantidad; $i ++){
                     $query1 = "INSERT INTO compras (client_id, product_id, date) VALUES(?, ?, ?)";
                     $a = array($client_id, $id, date("Y/m/d"));
