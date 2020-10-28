@@ -5,25 +5,13 @@ if(!empty($_COOKIE['eliminado'])){
     echo $result;
     setcookie('eliminado', "", time()-3600);
 } 
-if (!empty($_COOKIE["carrito"])){
+if (!empty($_SESSION["carrito"])){
     echo "<div id='container'>";
-    $carrito = $_COOKIE["carrito"];
-    $carrito = explode("$", $carrito);
-    unset($carrito[0]);
+    $carrito = $_SESSION["carrito"];
+    ksort($carrito);
     $importe = 0;
-    $productos = array();
     $cantidad_total = 0;
-    foreach($carrito as $id){
-        $cantidad_total = $cantidad_total + 1;
-        if(empty($productos[$id])){
-            $productos[$id] = 1;
-        }
-        else{
-            $productos[$id] += 1;
-
-        }
-    }
-    ksort($productos);
+    
     print '<table><thead>';
     print '<tr>';
     echo "<th>", "</th>";
@@ -31,7 +19,7 @@ if (!empty($_COOKIE["carrito"])){
     echo "<th>", "Cantidad", "</th>";
     echo "<th>", "Precio", "</th>";
     print '</tr>';
-    foreach($productos as $id => $cantidad){
+    foreach($carrito as $id => $cantidad){
         print "<tr>";
         $query2 = "SELECT * FROM productos WHERE product_id=$id";
         $rows=ejecutarSQL($query2,NULL);
@@ -64,6 +52,6 @@ else{
     $result='<div class="alert alert-info">Todavía no se ha añadido ningún producto a la cesta</div>';
     echo $result;
 }
-echo "/div";
+echo "</div>";
 echo "</main>";
 ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include(dirname(__FILE__)."/includes/pdo_postgres0.php");
 
@@ -43,21 +44,27 @@ switch ($action) {
         break;
 
         case "add":
+            $id_producto = $_GET["id_producto"];
             if(empty( $_COOKIE["login"])) {
                 setcookie('no_login', 'no_login', time()+3600);
                 header("Refresh:0, url=./portal.php?action=login");
             }
             else{
-                $carrito = "";
-                if (!empty($_COOKIE["carrito"])){
-                    $carrito = $_COOKIE["carrito"];
-                    $carrito .= "$";
-                    $carrito .= $_GET["id_producto"];
+                if (empty($_SESSION["carrito"])){
+                    $carrito = array();
+                    $carrito[$id_producto] = 1;
+                    $_SESSION["carrito"]=$carrito;
                 }
                 else{
-                    $carrito = "$".$_GET["id_producto"];
+                    $carrito = $_SESSION["carrito"];
+                    if (empty($carrito[$id_producto])){
+                        $carrito[$id_producto] = 1;
+                    }
+                    else {
+                        $carrito[$id_producto] += 1;
+                    }
                 }
-                setcookie("carrito", $carrito, time()+3600);
+                $_SESSION["carrito"] = $carrito;
                 setcookie('añadido', 'añadido', time()+3600);
                 header("Refresh:0, url=./portal.php?action=home");
         }
@@ -65,21 +72,19 @@ switch ($action) {
         break;
 
         case "delete":
+            $carrito = $_SESSION["carrito"];
             $id_producto = $_GET["id_producto"];
-            $carrito = $_COOKIE["carrito"];
-            $from = "$".$id_producto;
-            $from = '/'.preg_quote($from, '/').'/';
-            $to = "";
-            $carrito = preg_replace($from, $to,  $carrito, 1);
-            setcookie("carrito", $carrito, time()+3600);
+            $carrito[$id_producto] -= 1;
+            if ($carrito[$id_producto] == 0){
+                unset($carrito[$id_producto]);
+            }
+            $_SESSION["carrito"] = $carrito;
             setcookie('eliminado', "eliminado", time()+3600);
             header("Refresh: 0, url=./portal.php?action=carrito");
         break; 
 
         case "pagar":
-            $carrito = $_COOKIE["carrito"];
-            $carrito = explode("$", $carrito);
-            unset($carrito[0]);
+            $carrito = $_SESSION["carrito"];
             $login = $_COOKIE["login"];
             $query = "SELECT client_id FROM clientes WHERE username='$login'";
             $rows = ejecutarSQL($query, NULL);
@@ -87,12 +92,15 @@ switch ($action) {
             foreach($rows as $row){
                 $client_id = $row["client_id"];
             }
-            foreach($carrito as $id){
+            foreach($carrito as $id => $cantidad){
                 echo $client_id;
-                $query1 = "INSERT INTO compras (client_id, product_id, date) VALUES(?, ?, ?)";
-                $a = array($client_id, $id, date("Y/m/d"));
-                ejecutarSQL($query1, $a);
-                setcookie("carrito", "", time()-3600);
+                for ($i = 0; $i < $cantidad; $i ++){
+                    $query1 = "INSERT INTO compras (client_id, product_id, date) VALUES(?, ?, ?)";
+                    $a = array($client_id, $id, date("Y/m/d"));
+                    ejecutarSQL($query1, $a);
+
+                }
+                unset($_SESSION["carrito"]);
             }
 
             $result='<div class="alert alert-success">Tu compra ha sido procesada con éxito</div>';
@@ -145,6 +153,7 @@ switch ($action) {
             }
 
             else{
+                $_SESSION["carrito"] = array();
                 setcookie("login", $user, time()+3600);
                 $central="./partials/productos.php";
                 header("Refresh:0, url=./portal.php?action=home");
