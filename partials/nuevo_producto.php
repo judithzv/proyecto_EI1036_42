@@ -1,4 +1,5 @@
 <main>
+<body>
 <div id="container">
 <div id="mincontainer">
 	<b><h1>Registrar producto</h1></b>
@@ -14,7 +15,7 @@
 		<br/>
         <label for="image" class="fa fa-file-image-o" ><b> Imagen</b></label>
 		<br/>
-		<input type="button" value="Click me">
+		<input type="button" onclick="ventanaSecundaria('/partials/caja_flotante.php')" value="Subir imagen">
 		<br/>
 		<p><i class="fa fa-paper-plane" aria-hidden="true"></i><input type="submit" value="Enviar" id="botonaceptar">
 		<i class="fa fa-ban" aria-hidden="true"></i><input type="reset" value="Deshacer" id="botondeshacer">
@@ -22,4 +23,6 @@
 	</form>
 </div>
 </div>
+<script src="/partials/canvas.js"></script>
+</body>
 </main>

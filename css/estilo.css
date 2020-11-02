@@ -212,6 +212,12 @@ h3 {
     color: #000000;
 }
 
+#sidebar{
+    float: rigth; /* flota a la derecha, puede flotar donde quieras */
+    position: absolute; /* con posicion absoluta deberia quedar siempre en el mismo punto de la pagina */
+    top: 400px;  /* deja 400px contando desde arriba */
+}
+
 .cabecera {
     text-align: center;
 }
