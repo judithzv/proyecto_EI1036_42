@@ -158,6 +158,22 @@ switch ($action) {
             }
         break;
 
+        case insertar_producto:
+            $central = './partials/nuevo_producto.php';
+        break;
+    
+        case nuevo_producto:
+            $name = $_POST['name'];
+            $price = $_POST['price'];
+            $photo = $_FILE['image'];
+            $query = "INSERT INTO     $table (name, photo, price)
+            VALUES (?,?,?);";
+            $a=array($name, $price, $photo);
+            ejecutarSQL($query, $a);
+            $central = "./partials/login.php";
+
+        break;
+
     default:
         $data["error"] = "Accion No permitida";
 }
