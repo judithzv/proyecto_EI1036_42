@@ -14,7 +14,7 @@
 		<br/>
         <label for="image" class="fa fa-file-image-o" ><b> Imagen</b></label>
 		<br/>
-		<input type="button" name="image" class="item_requerid" size="20" maxlength="20">
+		<input type="button" value="Click me">
 		<br/>
 		<p><i class="fa fa-paper-plane" aria-hidden="true"></i><input type="submit" value="Enviar" id="botonaceptar">
 		<i class="fa fa-ban" aria-hidden="true"></i><input type="reset" value="Deshacer" id="botondeshacer">

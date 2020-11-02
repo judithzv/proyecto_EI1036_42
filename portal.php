@@ -158,11 +158,11 @@ switch ($action) {
             }
         break;
 
-        case insertar_producto:
+        case "insertar_producto":
             $central = './partials/nuevo_producto.php';
         break;
     
-        case nuevo_producto:
+        case "nuevo_producto":
             $name = $_POST['name'];
             $price = $_POST['price'];
             $photo = $_FILE['image'];
