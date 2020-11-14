@@ -38,6 +38,44 @@
 
  }
 
+ #oculto{
+     display:none;
+ }
+
+ .widget {
+    background: gray;
+    position: relative;
+    width: 100%;
+    height: 50%;
+    bottom: 50%;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+#cerrar{
+    float: right;
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    color: #999;
+    background: white;
+    line-height: 17px;
+    text-decoration: none;
+    padding: 0px 14px;
+    font-family: Arial;
+    border-radius: 0 0 0 5px;
+    box-shadow: -1px 1px white;
+    font-size: 18px;
+}
+
+#cerrar:hover {
+    background: #ff6868;
+    color: white;
+    text-decoration: none;
+    text-shadow: -1px -1px red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
+    }
+
  body {
     background-image: url('../img/fondo.jpg');
     max-width: 1000px;

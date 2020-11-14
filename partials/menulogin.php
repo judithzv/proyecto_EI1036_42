@@ -4,7 +4,7 @@
 		<a href="?action=home" id="nm"><i class="fa fa-home" aria-hidden="true"></i></a>
 		<a href='./portal.php?action=miscompras' id="nm"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
 		<a href='./portal.php?action=carrito' id="nm"><i class="fa fa-shopping-cart"></i></a>
-		<a href="./portal.php?action=insertar_producto" id="nm"><i class="fa fa-plus" aria-hidden="true"></i></a>
+		<a href="./portal.php?action=nuevo_producto" id="nm"><i class="fa fa-plus" aria-hidden="true"></i></a>
 		<a href="?action=logout" id="lnm"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
 		<b><i id="usu"><?php  echo  $_COOKIE["login"]; ?></i></b>
 </nav> 

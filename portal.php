@@ -158,20 +158,42 @@ switch ($action) {
             }
         break;
 
-        case "insertar_producto":
+        case "nuevo_producto":
             $central = './partials/nuevo_producto.php';
         break;
     
-        case "nuevo_producto":
+        case "insertar_producto":
+            $table = "productos";
+            $URL_image = $_COOKIE["nuevo_instrumento"];
             $name = $_POST['name'];
             $price = $_POST['price'];
-            $photo = $_FILE['image'];
-            $query = "INSERT INTO     $table (name, photo, price)
+            $query = "INSERT INTO     $table (name, price, image)
             VALUES (?,?,?);";
-            $a=array($name, $price, $photo);
+            $a=array($name, $price, $URL_image);
             ejecutarSQL($query, $a);
-            $central = "./partials/login.php";
+            $central = "./partials/productos.php";
 
+        break;
+
+        case "upload":
+            $target_dir = "uploads/";
+            $target_file = $target_dir . basename($_FILES['image']['name']);
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            // Check if image file is a actual image or fake image
+            if(isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["image"]["tmp_name"]);
+            if($check !== false) {
+                #echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+                move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+                setcookie("nuevo_instrumento", $target_file, time()+3600);
+            } else {
+                #echo "File is not an image.";
+                $uploadOk = 0;
+            }
+            }
+            $central = "./partials/nuevo_producto.php";
         break;
 
     default:
