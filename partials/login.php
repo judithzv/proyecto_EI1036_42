@@ -1,4 +1,5 @@
 <main>
+<body>
 	<?php
 if(!empty($_COOKIE['error_login'])){
     $result='<div class="alert alert-danger alert-dismissable">El usuario o la contraseña introducidos son incorrectos <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>';
@@ -17,11 +18,11 @@ if(!empty($_COOKIE['no_login'])){
 			<legend>Login</legend>
 			<label for="username"  class="fa fa-sign-in"><b> Usuario</b></label>
 			<br/>
-			<input type="text" name="username" class="item_requerid" size="20" maxlength="20">
+			<input type="text" name="username" class="item_requerid" size="20" maxlength="40" oninput="validar(this)">
 			<br/>
 			<label for="password" class="fa fa-key"><b> Contraseña</b></label>
 			<br/>
-			<input type="password"  name="password"  class="item_requerid" size="20" maxlength="20">
+			<input type="password"  name="password"  class="item_requerid" size="20" maxlength="40" oninput="validar(this)">
 			<br/>
 		<p>
 		<p><i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -32,4 +33,6 @@ if(!empty($_COOKIE['no_login'])){
 	</form>
 </div>
 </div>
+<script src="/partials/code.js"></script>
+</body>
 </main>

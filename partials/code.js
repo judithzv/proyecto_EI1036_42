@@ -5,8 +5,7 @@ function	handleFiles(e)	{
     img.onload	=	function()	{
                     ctx.drawImage(img,	20,20, 300, 150);
     }
-    let formulario = document.forms['rellenar'];
-    formulario['photo'].value= document.getElementById('upload').files[0].name;
+    comprobartamaño();
 }
 
 function mostrarFormulario() {
@@ -47,4 +46,26 @@ function cargar(){
     formulario['photo'].value=photo;
     localStorage.clear(); 
     
+}
+function comprobartamaño(){
+    let formulario = document.forms['rellenar'];
+    formulario['photo'].value= document.getElementById('upload').files[0].name;
+    foto=document.getElementById('upload').files[0].size;
+    if (foto>2000000){
+    alert("La imagen supera los 2MB");
+    formulario['photo'].style.color='red';
+    document.getElementById('mysubmit').disabled=true;
+    }
+    
+
+}
+function validar(input){
+    let text = input.value;
+    if(text.length>20) 
+        input.style.color = 'red';
+    else
+        input.style.color = 'green';
+
+
+
 }

@@ -7,15 +7,15 @@
 		<legend>Datos básicos del producto</legend>
 		<label for="name" class="fa fa-product-hunt"><b> Nombre</b></label>
 		<br/>
-		<input type="text" name="name" id="instrumento" class="item_requerid" size="20" maxlength="40">
+		<input type="text" name="name" id="instrumento" class="item_requerid" size="20" maxlength="40" oninput="validar(this)">
 		<br/>
         <label for="price" class="fa fa-money"><b> Precio</b></label>
 		<br/>
-		<input type="text" name="price" id="precio" class="item_requerid" size="20" maxlength="40">
+		<input type="number" name="price" id="precio" class="item_requerid" size="20" maxlength="40"  oninput="validar(this)">
 		<br/>
         <label for="image" class="fa fa-file-image-o" ><b> Imagen</b></label>
 		<br/>
-		<input type="text" id="photo" name="photo" class="item_requerid" readonly value="">
+		<input type="text" id="photo" name="photo" class="item_requerid" readonly value="" >
 		<br/>
 		<br/>
 		<input type="button" id="subir_imagen" onclick="mostrarFormulario()" value="Subir imagen">
@@ -25,11 +25,11 @@
 		</p>
 	</form>
 	<div id="oculto" class="widget"><a href="#" id="cerrar" class="close" data-dismiss="alert" aria-label="close" onclick="cerrarVentana()">&times;</a>
-		<form action="?action=upload" method="post" enctype="multipart/form-data" onsubmit="guardar()">
+		<form action="?action=upload" method="post" enctype="multipart/form-data" onsubmit="guardar()" id="rellenar_foto">
 			Selecciona	una	imagen:
 			<input type="file" accept="image/*" name="image" id="upload" onchange=handleFiles(event)>
 			<canvas id="canvas"></canvas>
-			<input type="submit" value="SUBIR" name="submit">
+			<input type="submit" id="mysubmit" value="SUBIR" name="submit">
 		</form>
 	</div>
 	<br/>
