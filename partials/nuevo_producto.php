@@ -3,7 +3,7 @@
 <div id="container">
 <div id="mincontainer">
 	<b><h1>Registrar producto</h1></b>
-	<form class="fom_usuario" action="?action=insertar_producto" method="POST">
+	<form class="fom_usuario" action="?action=insertar_producto" method="POST" id="rellenar">
 		<legend>Datos básicos del producto</legend>
 		<label for="name" class="fa fa-product-hunt"><b> Nombre</b></label>
 		<br/>
@@ -25,7 +25,7 @@
 		</p>
 	</form>
 	<div id="oculto" class="widget"><a href="#" id="cerrar" class="close" data-dismiss="alert" aria-label="close" onclick="cerrarVentana()">&times;</a>
-		<form action="?action=upload" method="post" enctype="multipart/form-data">
+		<form action="?action=upload" method="post" enctype="multipart/form-data" onsubmit="guardar()">
 			Selecciona	una	imagen:
 			<input type="file" accept="image/*" name="image" id="upload" onchange=handleFiles(event)>
 			<canvas id="canvas"></canvas>
