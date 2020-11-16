@@ -47,7 +47,7 @@ function add(row){
     }
 }
     let caja = document.getElementById("carrito_js"); 
-    caja.onmousedown = function(){startDrag()} 
+    caja.onmousedown = function(){empezarArrastrar()} 
     function empezarArrastrar() { 
     document.onmouseup = finalizarArrastrar /*-una-función-*/ 
     document.onmousemove = moverElemento /*.bind(this)*/ } 
