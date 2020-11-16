@@ -18,11 +18,11 @@ if(!empty($_COOKIE['no_login'])){
 			<legend>Login</legend>
 			<label for="username"  class="fa fa-sign-in"><b> Usuario</b></label>
 			<br/>
-			<input type="text" name="username" class="item_requerid" size="20" maxlength="40" oninput="validar(this)">
+			<input type="text" name="username" class="item_requerid" size="20"  required oninput="validar(this, 20, 'login')">
 			<br/>
 			<label for="password" class="fa fa-key"><b> Contraseña</b></label>
 			<br/>
-			<input type="password"  name="password"  class="item_requerid" size="20" maxlength="40" oninput="validar(this)">
+			<input type="password"  name="password"  class="item_requerid" size="20" required oninput="validar(this, 20, 'login' )">
 			<br/>
 		<p>
 		<p><i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -31,6 +31,7 @@ if(!empty($_COOKIE['no_login'])){
 		<input type="reset" value="Deshacer" id="botondeshacer">
 		</p>
 	</form>
+	<div id="login"></div>
 </div>
 </div>
 <script src="/partials/code.js"></script>

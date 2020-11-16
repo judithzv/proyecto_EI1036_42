@@ -7,11 +7,11 @@
 		<legend>Datos básicos del producto</legend>
 		<label for="name" class="fa fa-product-hunt"><b> Nombre</b></label>
 		<br/>
-		<input type="text" name="name" id="instrumento" class="item_requerid" size="20" maxlength="40" oninput="validar(this)">
+		<input type="text" name="name" id="instrumento" class="item_requerid" size="20" required  oninput="validar(this, 40, 'nuevo_producto')">
 		<br/>
         <label for="price" class="fa fa-money"><b> Precio</b></label>
 		<br/>
-		<input type="number" name="price" id="precio" class="item_requerid" size="20" maxlength="40"  oninput="validar(this)">
+		<input type="number" name="price" id="precio" class="item_requerid" size="20" required  oninput="validar(this, 40, 'nuevo_producto')">
 		<br/>
         <label for="image" class="fa fa-file-image-o" ><b> Imagen</b></label>
 		<br/>
@@ -24,6 +24,7 @@
 		<i class="fa fa-ban" aria-hidden="true"></i><input type="reset" value="Deshacer" id="botondeshacer">
 		</p>
 	</form>
+	<div id="nuevo_producto"></div>
 	<div id="oculto" class="widget"><a href="#" id="cerrar" class="close" data-dismiss="alert" aria-label="close" onclick="cerrarVentana()">&times;</a>
 		<form action="?action=upload" method="post" enctype="multipart/form-data" onsubmit="guardar()" id="rellenar_foto">
 			Selecciona	una	imagen:

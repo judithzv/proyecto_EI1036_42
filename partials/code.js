@@ -51,20 +51,36 @@ function comprobartamaño(){
     let formulario = document.forms['rellenar'];
     formulario['photo'].value= document.getElementById('upload').files[0].name;
     foto=document.getElementById('upload').files[0].size;
-    if (foto>2000000){
-    alert("La imagen supera los 2MB");
-    formulario['photo'].style.color='red';
-    document.getElementById('mysubmit').disabled=true;
+    if (foto>30000){
+        alert("La imagen supera los 2MB");
+        formulario['photo'].style.color='red';
+        document.getElementById('mysubmit').disabled=true;
+    }
+    else{
+        formulario['photo'].style.color='black';
+        document.getElementById('mysubmit').disabled=false;
     }
     
 
+
 }
-function validar(input){
+function validar(input, number, div){
     let text = input.value;
-    if(text.length>20) 
+    if(text.length>number) {
         input.style.color = 'red';
-    else
+        document.getElementById('botonaceptar').disabled=true;
+        document.getElementById('botonaceptar').style.color='red';
+        document.getElementById(div).textContent="El texto introducido supera los caracteres permitidos.";
+        document.getElementById(div).style.color="red";
+
+
+    }
+    else{
         input.style.color = 'green';
+        document.getElementById('botonaceptar').disabled=false;
+        document.getElementById('botonaceptar').style.color='white';
+        document.getElementById(div).textContent="";
+    }
 
 
 
