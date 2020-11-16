@@ -48,3 +48,14 @@ function add(row){
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
 }
+    let divCaja = document.getElementById("carrito_js"); 
+    divCaja.onmousedown = function(){startDrag()} 
+    function startDrag() { 
+    document.onmouseup = finishDrag /*-una-función-*/ 
+    document.onmousemove = moveElement /*.bind(this)*/ } 
+    function moveElement(e) { 
+    /*this is now the element that is moving*/ 
+    divCaja.style.top = (divCaja.offsetTop + e.movementY) + "px"; divCaja.style.left = (divCaja.offsetLeft + e.movementX) + "px"; } 
+    function finishDrag(e) { //podemos omitir el evento e ya que no lo usamos document.onmouseup = null; 
+    document.onmousemove = null; 
+    } 
