@@ -34,7 +34,14 @@ function guardar(){
     
 }
 
-
+function vaciar(){
+    let photo = document.getElementById('photo');
+    photo.setAttribute("value", "");
+    let canvas = document.getElementById('canvas');
+    canvas.width=canvas.width;
+    let img = document.getElementById('upload');
+    img.value = "";
+}
 
 function cargar(){
     let instrumento = localStorage.getItem('instrumento');
@@ -51,14 +58,23 @@ function comprobartamaño(){
     let formulario = document.forms['rellenar'];
     formulario['photo'].value= document.getElementById('upload').files[0].name;
     foto=document.getElementById('upload').files[0].size;
-    if (foto>30000){
-        alert("La imagen supera los 2MB");
+    if (foto>2000000){
         formulario['photo'].style.color='red';
+        document.getElementById('botonaceptar').disabled=true;
+        document.getElementById('botonaceptar').style.color='red';
         document.getElementById('mysubmit').disabled=true;
+
+        let div = document.getElementById('nuevo_producto');
+        div.textContent = "La imagen supera los 2 MB";
+        div.style.color = "red";
     }
     else{
         formulario['photo'].style.color='black';
+        document.getElementById('botonaceptar').disabled=false;
+        document.getElementById('botonaceptar').style.color='white';
         document.getElementById('mysubmit').disabled=false;
+        document.getElementById('nuevo_producto').textContent = "";
+
     }
     
 

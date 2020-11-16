@@ -21,7 +21,7 @@
 		<input type="button" id="subir_imagen" onclick="mostrarFormulario()" value="Subir imagen">
 		<br/>
 		<p><i class="fa fa-paper-plane" aria-hidden="true"></i><input type="submit" value="Enviar" id="botonaceptar">
-		<i class="fa fa-ban" aria-hidden="true"></i><input type="reset" value="Deshacer" id="botondeshacer">
+		<i class="fa fa-ban" aria-hidden="true"></i><input type="reset" value="Deshacer" id="botondeshacer" onclick="vaciar()">
 		</p>
 	</form>
 	<div id="nuevo_producto"></div>

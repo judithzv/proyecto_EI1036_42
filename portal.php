@@ -181,19 +181,19 @@ switch ($action) {
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             // Check if image file is a actual image or fake image
-            if(isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["image"]["tmp_name"]);
-            if($check !== false) {
-                #echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-                move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-                setcookie("nuevo_instrumento", $target_file, time()+3600);
-            } else {
-                #echo "File is not an image.";
-                $uploadOk = 0;
+            if(isset($_POST["submit"])){
+                $check = getimagesize($_FILES["image"]["tmp_name"]);
+                if($check !== false) {
+                    #echo "File is an image - " . $check["mime"] . ".";
+                    $uploadOk = 1;
+                    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+                    setcookie("nuevo_instrumento", $target_file, time()+3600);
+                } else {
+                    #echo "File is not an image.";
+                    $uploadOk = 0;
+                }
             }
-            }
-            $central = "./partials/nuevo_producto.php";
+            header("Refresh:0, url=./portal.php?action=nuevo_producto");
         break;
 
     default:
