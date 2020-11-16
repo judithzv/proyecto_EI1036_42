@@ -3,15 +3,15 @@
 <div id="container">
 <div id="mincontainer">
 	<b><h1>Registrar producto</h1></b>
-	<form class="fom_usuario" action="?action=insertar_producto" method="POST" id="rellenar">
+	<form class="fom_usuario" action="?action=insertar_producto" method="POST" id="rellenar"  onsubmit="return vacio(this, 'nuevo_producto')">
 		<legend>Datos básicos del producto</legend>
 		<label for="name" class="fa fa-product-hunt"><b> Nombre</b></label>
 		<br/>
-		<input type="text" name="name" id="instrumento" class="item_requerid" size="20" required  oninput="validar(this, 40, 'nuevo_producto')">
+		<input type="text" name="name" id="instrumento" class="item_requerid" size="20"   oninput="validar(this, 40, 'nuevo_producto')">
 		<br/>
         <label for="price" class="fa fa-money"><b> Precio</b></label>
 		<br/>
-		<input type="number" name="price" id="precio" class="item_requerid" size="20" required  oninput="validar(this, 40, 'nuevo_producto')">
+		<input type="number" name="price" id="precio" class="item_requerid" size="20"   oninput="validar(this, 40, 'nuevo_producto')">
 		<br/>
         <label for="image" class="fa fa-file-image-o" ><b> Imagen</b></label>
 		<br/>

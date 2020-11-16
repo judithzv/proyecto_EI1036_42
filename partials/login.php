@@ -14,15 +14,15 @@ if(!empty($_COOKIE['no_login'])){
 <div id="container">
 <div id="mincontainer">
 	<h1>Accede a tu cuenta</h1>
-	<form class="fom_usuario" action="?action=acceder" method="POST">
+	<form class="fom_usuario" action="?action=acceder" method="POST" onsubmit="return vacio(this, 'login')">
 			<legend>Login</legend>
 			<label for="username"  class="fa fa-sign-in"><b> Usuario</b></label>
 			<br/>
-			<input type="text" name="username" class="item_requerid" size="20"  required oninput="validar(this, 20, 'login')">
+			<input type="text" name="username" class="item_requerid" size="20"   oninput="validar(this, 20, 'login')">
 			<br/>
 			<label for="password" class="fa fa-key"><b> Contraseña</b></label>
 			<br/>
-			<input type="password"  name="password"  class="item_requerid" size="20" required oninput="validar(this, 20, 'login' )">
+			<input type="password"  name="password"  class="item_requerid" size="20"  oninput="validar(this, 20, 'login' )">
 			<br/>
 		<p>
 		<p><i class="fa fa-paper-plane" aria-hidden="true"></i>

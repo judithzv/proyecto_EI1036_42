@@ -74,6 +74,7 @@ function comprobartamaño(){
         document.getElementById('botonaceptar').style.color='white';
         document.getElementById('mysubmit').disabled=false;
         document.getElementById('nuevo_producto').textContent = "";
+        formulario['photo'].style.borderColor ="white";
 
     }
     
@@ -88,7 +89,7 @@ function validar(input, number, div){
         document.getElementById('botonaceptar').style.color='red';
         document.getElementById(div).textContent="El texto introducido supera los caracteres permitidos.";
         document.getElementById(div).style.color="red";
-
+        input.style.borderColor ="red";
 
     }
     else{
@@ -96,8 +97,36 @@ function validar(input, number, div){
         document.getElementById('botonaceptar').disabled=false;
         document.getElementById('botonaceptar').style.color='white';
         document.getElementById(div).textContent="";
+        input.style.borderColor ="white";
+    }     
+    }
+
+    function vacio(formulario, div){
+        for(let i=0; i<formulario.length; i++){
+            text=formulario[i].value;
+        if (text.length==0){
+            formulario[i].style.borderColor ='red';
+            document.getElementById('botonaceptar').disabled=true;
+            document.getElementById('botonaceptar').style.color='red';
+            document.getElementById(div).textContent="Campo obligatorio";
+            document.getElementById(div).style.color="red";
+            return false;
+
+
+        }
+        else{
+            formulario[i].style.borderColor ='white';
+            document.getElementById('botonaceptar').disabled=false;
+            document.getElementById('botonaceptar').style.color='white';
+            document.getElementById(div).textContent=" ";
+        }
+    }
+    return true;
+
     }
 
 
 
-}
+
+
+   
