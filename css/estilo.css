@@ -38,21 +38,38 @@
 
  }
 
- #oculto{
+ .oculto{
      display:none;
+ }
+
+ .visible{
+     display:inline-block;
+     right:20%;
  }
 
  .widget {
     background: gray;
-    position: relative;
-    width: 100%;
-    height: 50%;
-    bottom: 50%;
+    position: absolute;
+    width: 20%;
+    height: 30%;
     padding-top:20px;
     padding-bottom:20px;
 }
 
-#cerrar{
+#carrito_js {
+    width: 50%;
+    height: 50%;
+}
+
+#carrito_js th, #carrito_js td {
+    width: 5%;
+    height: 50px;
+    margin: 10px 10px auto; 
+    text-align: center; 
+    border-bottom: 1px solid #ddd;
+}
+
+.cerrar{
     float: right;
     border-bottom: 1px solid #bbb;
     border-left: 1px solid #bbb;
@@ -67,7 +84,7 @@
     font-size: 18px;
 }
 
-#cerrar:hover {
+.cerrar:hover {
     background: #ff6868;
     color: white;
     text-decoration: none;

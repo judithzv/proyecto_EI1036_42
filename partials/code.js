@@ -10,7 +10,7 @@ function	handleFiles(e)	{
 
 function mostrarFormulario() {
     let div = document.getElementById('oculto');
-    div.style.display = 'block';
+    div.className = 'visible widget';
     let button = document.getElementById('subir_imagen');
     button.style.display = 'none';
     
@@ -18,7 +18,7 @@ function mostrarFormulario() {
 
 function cerrarVentana() {
     let div = document.getElementById('oculto');
-    div.style.display = 'none';
+    div.className = 'oculto widget';
     let button = document.getElementById('subir_imagen');
     button.style.display = 'inline';
 }

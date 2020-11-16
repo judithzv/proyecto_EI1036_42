@@ -25,7 +25,7 @@
 		</p>
 	</form>
 	<div id="nuevo_producto"></div>
-	<div id="oculto" class="widget"><a href="#" id="cerrar" class="close" data-dismiss="alert" aria-label="close" onclick="cerrarVentana()">&times;</a>
+	<div id="oculto" class="widget oculto"><a href="#" class="cerrar close" data-dismiss="alert" aria-label="close" onclick="cerrarVentana()">&times;</a>
 		<form action="?action=upload" method="post" enctype="multipart/form-data" onsubmit="guardar()" id="rellenar_foto">
 			Selecciona	una	imagen:
 			<input type="file" accept="image/*" name="image" id="upload" onchange=handleFiles(event)>

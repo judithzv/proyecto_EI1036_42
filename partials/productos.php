@@ -22,7 +22,8 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
         echo "<td>", "<img src=$img id='lista'>", "</td>";
         echo "<th>", $row['name'],"</th>";
         echo "<th>", $price, "€", "</th>";
-        echo "<td>", "<a href='./portal.php?action=add&id_producto=$id' value='Carrito' id='carrito' >Añadir <i class='fa fa-shopping-cart'></i></a>",
+        $producto = json_encode($row);
+        echo "<td>", "<a href='#' onclick='add($producto)' value='Carrito' id='carrito' >Añadir <i class='fa fa-shopping-cart'></i></a>",
         "</td>";
         print "</tr>";
     }
@@ -30,4 +31,5 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
 }
 echo "</div>";
 echo "</main>";
+echo "<script src='/partials/carrito.js'></script>";
 ?>
