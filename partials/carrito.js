@@ -21,10 +21,8 @@ function mostrarCarrito(){
 
 }
 
-function close() {
-    alert("hola");
+function ventanaCerrar() {
     let caja = document.getElementById('carrito_js');
-    alert(caja);
     caja.className = 'oculto widget';
 }
 
@@ -48,14 +46,14 @@ function add(row){
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
 }
-    let divCaja = document.getElementById("carrito_js"); 
-    divCaja.onmousedown = function(){startDrag()} 
-    function startDrag() { 
-    document.onmouseup = finishDrag /*-una-función-*/ 
-    document.onmousemove = moveElement /*.bind(this)*/ } 
-    function moveElement(e) { 
+    let caja = document.getElementById("carrito_js"); 
+    caja.onmousedown = function(){startDrag()} 
+    function empezarArrastrar() { 
+    document.onmouseup = finalizarArrastrar /*-una-función-*/ 
+    document.onmousemove = moverElemento /*.bind(this)*/ } 
+    function moverElemento(e) { 
     /*this is now the element that is moving*/ 
-    divCaja.style.top = (divCaja.offsetTop + e.movementY) + "px"; divCaja.style.left = (divCaja.offsetLeft + e.movementX) + "px"; } 
-    function finishDrag(e) { //podemos omitir el evento e ya que no lo usamos document.onmouseup = null; 
+    caja.style.top = (caja.offsetTop + e.movementY) + "px"; caja.style.left = (caja.offsetLeft + e.movementX) + "px"; } 
+    function finalizarArrastrar(e) { //podemos omitir el evento e ya que no lo usamos document.onmouseup = null; 
     document.onmousemove = null; 
     } 
