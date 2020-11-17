@@ -9,87 +9,78 @@ function mostrarCarrito(){
             caja.appendChild(div);
         }
     }
-
         else{ 
-            var carrito = JSON.parse(localStorage.getItem('carrito'));
-            //alert(JSON.stringify(carrito));
+            actualizarCarrito();
+        }
+
+}
+
+function ventanaCerrar() {
+    var caja = document.getElementById('carrito_js');
+    caja.className = 'oculto widget';
+}
+function actualizarCarrito(){
+    var caja = document.getElementById('carrito_js');
+    var carrito = JSON.parse(localStorage.getItem('carrito'));
+            //dquitar texto de cesta vacía
             if(document.getElementById('carrito_div').textContent!=" "){
                 document.getElementById('carrito_div').textContent=" ";
             }
 
+            //eliminar tabla para rehacerla
             if(caja.getElementsByTagName('table').length!=0){
                 caja.removeChild(caja.lastChild);
                 
             }
             else{
+                //h1 con emoticono compra
                 var h1=document.createElement("h1");
                 h1.textContent="CARRITO DE LA COMPRA";
+                var emoticono=document.createElement('i')
+                emoticono.innerHTML='<i class="fa fa-cart-plus" aria-hidden="true"></i>';
+                h1.appendChild(emoticono);
                 caja.appendChild(h1);
             }
-
+   
             var tabla =document.createElement("table");
-            var tblbody = document.createElement("tbody");      
+            var tblbody = document.createElement("tbody");   
+             //cabecera   
             var tr1 = document.createElement("tr");
-            var th1 = document.createElement("th");
-            th1.textContent="Nombre";
-            var th2 = document.createElement("th");
-            th2.textContent="Precio";
-            var th3 = document.createElement("th");
-            th3.textContent="Imagen";
-            var th4 = document.createElement("th");
-            th4.textContent="Cantidad";
-            tr1.appendChild(th1);
-            tr1.appendChild(th2);
-            tr1.appendChild(th3);
-            tr1.appendChild(th4);
+            tr1.innerHTML='<th>Imagen</th><th>Nombre</th><th>Precio</th><th>Cantidad</th>'
             tblbody.appendChild(tr1);
        
             for (key in carrito){
                 var tr = document.createElement("tr");
+                //imagen salga primero
+                var td= document.createElement("td");
+                var imagen=document.createElement("img")
+                imagen.src=carrito[key]['imagen'];
+                td.appendChild(imagen);
+                tr.append(td);
+                //bucle demás atributos
                 for (object in carrito[key]){
                     var td= document.createElement("td");
                     var añadir=carrito[key][object];
-                    if (object=="imagen"){
-                        var imagen=document.createElement("img")
-                        imagen.src=carrito[key]['imagen'];
-                        imagen.style.width = "100px";
-                        imagen.style.height = "100px";
-                        td.appendChild(imagen);
-                    }
-                    else{
+                    if (object!="imagen"){
                         if (object=="precio"){
                             añadir*=carrito[key]['cantidad'];
                         }
                         td.textContent=añadir;
+                        tr.append(td);
                     }
-                    tr.append(td);
-
                 }
                 tblbody.appendChild(tr);
-
             }
             tabla.appendChild(tblbody);
-            tabla.setAttribute("border", "2");
             caja.appendChild(tabla);
     
-        }
+        
+    }
 
-            
-
-
-
-}
-
-function ventanaCerrar() {
-    let caja = document.getElementById('carrito_js');
-    caja.className = 'oculto widget';
-}
 
 function add(row){
     var carrito = JSON.parse(localStorage.getItem('carrito'));
-    //alert(JSON.stringify(carrito));
     var id = row['product_id'];
-    //alert(id);
     if(carrito && carrito[id]){
         carrito[id].cantidad+=1;
         localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -107,8 +98,9 @@ function add(row){
         carrito[id] = producto;
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
+    actualizarCarrito();
 }
-    let caja = document.getElementById("carrito_js"); 
+    var caja = document.getElementById("carrito_js"); 
     caja.onmousedown = function(){empezarArrastrar()} 
     function empezarArrastrar() { 
     document.onmouseup = finalizarArrastrar /*-una-función-*/ 

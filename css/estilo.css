@@ -55,7 +55,6 @@
     height: 30%;
     padding-top:20px;
     padding-bottom:20px;
-    overflow: scroll;
 }
 
 #carrito_js {
@@ -66,6 +65,8 @@
     left: 23%;
     padding-left: 30px;
     padding-right: 30px;
+    overflow: auto;
+    border: 10px solid #bd6830 ;
 
 }
 
@@ -75,6 +76,13 @@
     margin: 10px 10px auto; 
     text-align: center; 
     border-bottom: 1px solid #ddd;
+}
+#carrito_js img {
+    width: 100px;
+    height: 100px;
+}
+#carrito_js h1 {
+    text-decoration: underline;
 }
 
 
