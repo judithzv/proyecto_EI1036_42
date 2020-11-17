@@ -127,6 +127,7 @@ function validar(input, number, div){
     let divCaja = document.getElementById("oculto"); 
     divCaja.onmousedown = function(){startDrag()} 
     function startDrag() { 
+        document.body.className = "disableselect";
     document.onmouseup = finishDrag /*-una-función-*/ 
     document.onmousemove = moveElement /*.bind(this)*/ } 
     function moveElement(e) { 
@@ -134,6 +135,7 @@ function validar(input, number, div){
     divCaja.style.top = (divCaja.offsetTop + e.movementY) + "px"; divCaja.style.left = (divCaja.offsetLeft + e.movementX) + "px"; } 
     function finishDrag(e) { //podemos omitir el evento e ya que no lo usamos document.onmouseup = null; 
     document.onmousemove = null; 
+    document.body.className = "";
     } 
 
 

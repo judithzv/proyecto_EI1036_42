@@ -103,6 +103,7 @@ function add(row){
     var caja = document.getElementById("carrito_js"); 
     caja.onmousedown = function(){empezarArrastrar()} 
     function empezarArrastrar() { 
+        document.body.className = "disableselect";
     document.onmouseup = finalizarArrastrar /*-una-función-*/ 
     document.onmousemove = moverElemento /*.bind(this)*/ } 
     function moverElemento(e) { 
@@ -110,4 +111,5 @@ function add(row){
     caja.style.top = (caja.offsetTop + e.movementY) + "px"; caja.style.left = (caja.offsetLeft + e.movementX) + "px"; } 
     function finalizarArrastrar(e) { //podemos omitir el evento e ya que no lo usamos document.onmouseup = null; 
     document.onmousemove = null; 
+    document.body.className = "";
     } 
