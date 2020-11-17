@@ -51,7 +51,7 @@ function cargar(){
     formulario['instrumento'].value=instrumento;
     formulario['precio'].value=precio;
     formulario['photo'].value=photo;
-    localStorage.clear(); 
+    localStorage.vaciar(); 
     
 }
 function comprobartamaño(){

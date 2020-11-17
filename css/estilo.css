@@ -55,13 +55,18 @@
     height: 30%;
     padding-top:20px;
     padding-bottom:20px;
+    overflow: scroll;
 }
 
 #carrito_js {
-    width: 30%;
-    height: 30%;
-    top: 50%;
-    left: 60%;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    top: 40%;
+    left: 23%;
+    padding-left: 30px;
+    padding-right: 30px;
+
 }
 
 #carrito_js th, #carrito_js td {
@@ -71,6 +76,7 @@
     text-align: center; 
     border-bottom: 1px solid #ddd;
 }
+
 
 .cerrar{
     float: right;
@@ -100,6 +106,7 @@
     background-image: url('../img/fondo.jpg');
     max-width: 1000px;
     margin: 0 auto;
+    user-select: none;
 
     /* Centrado */
 }
