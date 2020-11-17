@@ -27,60 +27,47 @@ function mostrarCarrito(){
                 caja.appendChild(h1);
             }
 
-
             var tabla =document.createElement("table");
-            var tblbody = document.createElement("tbody");
-            
+            var tblbody = document.createElement("tbody");      
             var tr1 = document.createElement("tr");
-
             var th1 = document.createElement("th");
-            th1.textContent="Imagen";
+            th1.textContent="Nombre";
             var th2 = document.createElement("th");
-            th2.textContent="Nombre";
+            th2.textContent="Precio";
             var th3 = document.createElement("th");
-            th3.textContent="Precio";
+            th3.textContent="Imagen";
             var th4 = document.createElement("th");
             th4.textContent="Cantidad";
-
             tr1.appendChild(th1);
             tr1.appendChild(th2);
             tr1.appendChild(th3);
             tr1.appendChild(th4);
             tblbody.appendChild(tr1);
-
-            var total=0;
+       
             for (key in carrito){
                 var tr = document.createElement("tr");
-                var td_nombre= document.createElement("td");
-                td_nombre.textContent=carrito[key]['nombre'];
+                for (object in carrito[key]){
+                    var td= document.createElement("td");
+                    var añadir=carrito[key][object];
+                    if (object=="imagen"){
+                        var imagen=document.createElement("img")
+                        imagen.src=carrito[key]['imagen'];
+                        imagen.style.width = "100px";
+                        imagen.style.height = "100px";
+                        td.appendChild(imagen);
+                    }
+                    else{
+                        if (object=="precio"){
+                            añadir*=carrito[key]['cantidad'];
+                        }
+                        td.textContent=añadir;
+                    }
+                    tr.append(td);
 
-                var imagen=document.createElement("img")
-                imagen.src=carrito[key]['imagen'];
-                imagen.style.width = "100px";
-                imagen.style.height = "100px";
-                var td_imagen= document.createElement("td");
-                td_imagen.append(imagen);
-                
-
-                var td_cantidad= document.createElement("td");
-                var cantidad= carrito[key]['cantidad']
-                td_cantidad.textContent=cantidad;
-
-                var td_precio= document.createElement("td");
-                var precio=carrito[key]['precio'];
-                td_precio.textContent=precio*cantidad;
-                total+=precio*cantidad;
-
-                tr.append(td_imagen);
-                tr.append(td_nombre);
-                tr.append(td_precio);
-                tr.append(td_cantidad);
+                }
                 tblbody.appendChild(tr);
 
             }
-
-
-
             tabla.appendChild(tblbody);
             tabla.setAttribute("border", "2");
             caja.appendChild(tabla);
