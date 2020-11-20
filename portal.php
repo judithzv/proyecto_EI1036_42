@@ -82,6 +82,34 @@ switch ($action) {
         break; 
 
         case "pagar":
+            $login = $_COOKIE["login"];
+            $query = "SELECT client_id FROM clientes WHERE username='$login'";
+            $rows = ejecutarSQL($query, NULL);
+            $client_id = "";
+            foreach($rows as $row){
+                $client_id = $row["client_id"];
+            }
+            $productos = $_GET['productos'];
+            $cantidades = $_GET['cantidades'];
+            $productos =  explode(',', $productos);
+            $cantidades = explode(',', $cantidades);
+            print_r($productos);
+
+            for($i = 0; $i < count($productos); $i++){
+                $cantidad = $cantidades[$i];
+                $product_id = $productos[$i];
+                for ($j = 0; $j < $cantidad; $j ++){
+                    $query1 = "INSERT INTO compras (client_id, product_id, date) VALUES(?, ?, ?)";
+                    $a = array($client_id, $product_id, date("Y/m/d"));
+                    ejecutarSQL($query1, $a);
+
+                }
+            }
+            $central = "./partials/productos.php";
+
+        break;
+
+        case "pagar_old":
             $carrito = $_SESSION["carrito"];
             $login = $_COOKIE["login"];
             $query = "SELECT client_id FROM clientes WHERE username='$login'";
