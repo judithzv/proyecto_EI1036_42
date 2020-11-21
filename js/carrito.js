@@ -19,7 +19,11 @@ function mostrarCarrito(cliente){
             if(tabla){
                 tabla.remove();
             }
-            div.textContent = "Todavía no se ha añadido ningún producto a la cesta";
+            div.textContent = "Todavía no se ha añadido ningún producto.";
+            var imagen=document.createElement("img")
+            imagen.src="./img/carrito.jpg";
+            imagen.setAttribute("id","imagen_vacio");
+            caja.append(imagen);      
             caja.appendChild(div);
         }
     }
@@ -39,6 +43,9 @@ function actualizarCarrito(cliente){
             //dquitar texto de cesta vacía
             if(document.getElementById('carrito_div').textContent!=""){
                 document.getElementById('carrito_div').textContent="";
+            }
+            if(document.getElementById('imagen_vacio')){
+                document.getElementById('imagen_vacio').remove();
             }
 
             //eliminar tabla para rehacerla
@@ -65,6 +72,7 @@ function actualizarCarrito(cliente){
                 var td= document.createElement("td");
                 var imagen=document.createElement("img")
                 imagen.src=carrito[key]['imagen'];
+                imagen.setAttribute("id","imagen_instrumento");
                 total += parseInt(carrito[key]['precio'])*parseInt(carrito[key]['cantidad']);
                 productos += carrito[key]['cantidad'];
                 td.appendChild(imagen);
