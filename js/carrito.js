@@ -142,7 +142,7 @@ function actualizarCarrito(cliente){
             form.appendChild(input_cantidades);
             form.appendChild(input_productos);
             form.appendChild(boton_pagar);
-            //form.appendChild(icon);
+            boton_pagar.appendChild(icon);
             td.appendChild(form);
             tr.appendChild(td);
 
@@ -186,8 +186,9 @@ function add_product(row){
         localStorage.setItem(cliente, JSON.stringify(carrito));
     }
     var div = document.createElement('div');
+    div.id = 'inner-message';
     div.className = "alert alert-success alert-dismissable";
-    div.textContent = "El producto ha sido eliminado de la cesta correctamente";
+    div.textContent = "El producto ha sido añadido a la cesta correctamente";
     var link = document.createElement('a');
     link.href="#";
     link.className = "close";
@@ -195,7 +196,8 @@ function add_product(row){
     link.setAttribute("aria-label", close);
     link.innerHTML = "&times;";
     div.appendChild(link);
-    document.body.insertBefore(div, document.getElementById('container').parentNode);
+    var container = document.getElementById("message_container");
+    container.appendChild(div);
     actualizarCarrito(cliente);
 }
 

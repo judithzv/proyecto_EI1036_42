@@ -39,5 +39,5 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
 }
 echo "</div>";
 echo "</main>";
-echo "<script src='/partials/carrito.js'></script>";
+echo "<script src='/js/carrito.js'></script>";
 ?>

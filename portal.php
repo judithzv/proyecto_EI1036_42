@@ -89,11 +89,10 @@ switch ($action) {
             foreach($rows as $row){
                 $client_id = $row["client_id"];
             }
-            $productos = $_GET['productos'];
-            $cantidades = $_GET['cantidades'];
+            $productos = $_POST['productos'];
+            $cantidades = $_POST['cantidades'];
             $productos =  explode(',', $productos);
             $cantidades = explode(',', $cantidades);
-            print_r($productos);
 
             for($i = 0; $i < count($productos); $i++){
                 $cantidad = $cantidades[$i];
@@ -105,9 +104,16 @@ switch ($action) {
 
                 }
             }
-            $central = "./partials/productos.php";
+            header("Refresh: 0,  url=./portal.php?action=exito_compra");
+
 
         break;
+
+        case "exito_compra":
+            $result='<div class="alert alert-success">Tu compra ha sido procesada con éxito</div>';
+            echo $result;
+        break;
+
 
         case "pagar_old":
             $carrito = $_SESSION["carrito"];
@@ -204,7 +210,7 @@ switch ($action) {
         break;
 
         case "upload":
-            $target_dir = "uploads/";
+            $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES['image']['name']);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

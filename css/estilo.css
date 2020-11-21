@@ -47,11 +47,26 @@
 
  }
 
+ #message_container{
+    padding: 5px;
+ }
+
+ #message {
+    position: fixed;
+    top: 0;
+    width: 50%;
+    left: 25%;
+}
+#inner-message {
+    margin: 1% auto;
+}
+
  .oculto{
      display:none;
  }
 
  .visible{
+    display:block;
     top: 50%;
     left: 60%;
 
@@ -77,6 +92,10 @@
     overflow: auto;
     border: 10px solid #bd6830 ;
 
+}
+
+#carrito_div {
+    font-family: Impact, Charcoal, sans-serif;
 }
 
 #carrito_js th, #carrito_js td {
@@ -155,6 +174,11 @@ section {
     padding: 15px 5px 5px 5px;
     background-color: beige;
     box-shadow: 3px 3px 3px 3px rgba(50, 50, 50, .75);
+}
+
+#carrito_js h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -252,6 +276,80 @@ h1 {
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
+    display: inline-block;
+    margin: 0px auto; 
+    border-radius: 6px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 6px 12px;
+    margin-bottom: 0;
+
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+}
+.btn:focus,
+.btn:active:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.btn:hover,
+.btn:focus {
+    color: #333;
+    text-decoration: none;
+}
+.btn:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+/* default
+---------------------------- */
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn-default:focus {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c;
+}
+.btn-default:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+.btn-default:active {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+  .fa-input {
+    font-size: 18px;
+    font-family: "Lucida Console", Courier, monospace;
+    color: white;
+    background-color:#55cf0e;
+    padding: 7% 0%;
+    width: 75%;
+    text-align: center;
     display: inline-block;
     margin: 0px auto; 
     border-radius: 6px;

@@ -47,14 +47,16 @@ function vaciar(){
 }
 
 function cargar(){
-    let instrumento = localStorage.getItem('instrumento');
-    let precio = localStorage.getItem('precio');
-    let photo = localStorage.getItem('photo');
-    let formulario = document.forms['rellenar'];
-    formulario['instrumento'].value=instrumento;
-    formulario['precio'].value=precio;
-    formulario['photo'].value=photo;
-    vaciar(); 
+    if(window.location.href == 'http://localhost:8080/portal.php?action=nuevo_producto'){
+        let instrumento = localStorage.getItem('instrumento');
+        let precio = localStorage.getItem('precio');
+        let photo = localStorage.getItem('photo');
+        let formulario = document.forms['rellenar'];
+        formulario['instrumento'].value=instrumento;
+        formulario['precio'].value=precio;
+        formulario['photo'].value=photo;
+    vaciar();
+    }
     
 }
 function comprobartamaño(){

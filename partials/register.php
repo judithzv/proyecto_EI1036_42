@@ -36,6 +36,6 @@
 	<div id="register"></div>
 </div>
 </div>
-<script src="/partials/code.js"></script>
+<script src="/js/code.js"></script>
 </body>
 </main>
