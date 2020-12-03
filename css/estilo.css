@@ -461,3 +461,20 @@ td, th { width: 500px; height: 100px; margin: 10px 10px auto; text-align: center
     margin-top: 0px;
     text-align: right;
 }
+
+.visor {
+    background-color: lightblue;
+    width: 200px;
+    overflow-x: scroll;
+    display:flex;
+}
+
+.item {
+    margin: 5px;
+    background-color: darkblue;
+    color: white;
+}
+
+.item button {
+    margin:10px;
+}

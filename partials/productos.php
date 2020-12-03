@@ -1,4 +1,5 @@
 <?php
+echo "<body>";
 echo "<main>";
 if(!empty($_COOKIE['añadido'])){
     $result='<div class="alert alert-success alert-dismissable">El producto ha sido añadido a la cesta correctamente <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>';
@@ -40,4 +41,6 @@ if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
 echo "</div>";
 echo "</main>";
 echo "<script src='/js/carrito.js'></script>";
+echo "<script>fetch('/partials/datos.php').then(response => response.json()).then(data => console.log(data));</script>";
+echo "</body>"
 ?>

@@ -174,6 +174,7 @@ function actualizarCarrito(cliente){
 
 function add_product(row){
     var cliente = row['login'];
+    console.log(cliente);
     var carrito = JSON.parse(localStorage.getItem(cliente));
     var id = row['product_id'];
     if(carrito && carrito[id]){
