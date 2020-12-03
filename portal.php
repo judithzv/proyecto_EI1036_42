@@ -19,6 +19,7 @@ else $action = "home";
 $id_compra = 0;
 $id_cliente = 0;
 $central = "";
+global $Prod2ID;
 
 switch ($action) {
     case "home":
@@ -36,6 +37,11 @@ switch ($action) {
     case "tarjeta":
         $central = "./partials/formulario.php";
     break;
+
+    case "datalist":
+        $central = "./partials/datalist.php";
+    break;
+
         
 
 
