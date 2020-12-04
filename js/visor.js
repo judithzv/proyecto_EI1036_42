@@ -39,3 +39,24 @@ function cambio_visor(elemento){
     id=$Prod2ID[nombre];
     document.getElementById(id).scrollIntoView();
 }
+function getVisor1(rows){
+    rows.forEach(producto => mostrar(producto));
+
+}
+function mostrar(producto){
+    var contenedor= document.getElementById("mincontainer");
+    var visor = document.getElementsByClassName("visor")[0];
+    var div = document.createElement('div');
+    div.id = producto.product_id;
+    div.className = "item";
+    var img = document.createElement('img');
+    img.src = producto.image;
+    img.width = 200;
+    img.height = 200;
+    var p = document.createElement('p');
+    p.textContent = producto.name + " " + producto.price + "€";
+    div.appendChild(img);
+    div.appendChild(p);
+    visor.appendChild(div);
+    contenedor.appendChild(visor);
+}

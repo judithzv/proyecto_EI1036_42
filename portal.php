@@ -38,11 +38,13 @@ switch ($action) {
         $central = "./partials/formulario.php";
     break;
 
-    case "datalist":
-        $central = "./partials/datalist.php";
+    case "busqueda_precios":
+        $central = "./partials/formulario_busqueda.php";
     break;
 
-        
+    case "precios":
+        $central = "./partials/precios.php";
+    break;
 
 
     case "info":
