@@ -23,7 +23,7 @@ global $Prod2ID;
 
 switch ($action) {
     case "home":
-        $central = "./partials/datos.php";
+        $central = "./partials/productos_visor.php";
     break;
 
     case "carrito":
@@ -174,7 +174,7 @@ switch ($action) {
 
         case "logout":
             setcookie("login", "", time()-3600);
-            $central = "./partials/datos.php";
+            $central = "./partials/productos_visor.php";
             header("Refresh:0, url=./portal.php?action=home");
         break;
 
@@ -194,7 +194,7 @@ switch ($action) {
             else{
                 $_SESSION["carrito"] = array();
                 setcookie("login", $user, time()+3600);
-                $central="./partials/datos.php";
+                $central="./partials/productos_visor.php";
                 header("Refresh:0, url=./portal.php?action=home");
 
                 

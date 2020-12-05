@@ -1,10 +1,11 @@
-function getVisor(rows){
-    $Prod2ID={};
-    rows.forEach(producto => anyadir(producto));
+function getVisor(){
+    //$Prod2ID={};
+    fetch('/partials/datos.php').then(response => response.json()).then(data => anyadir(data));
 
 }
 
-function anyadir(producto){
+function anyadir(productos){
+    productos.forEach(producto => {
     var contenedor= document.getElementById("mincontainer");
     var visor = document.getElementsByClassName("visor")[0];
     var div = document.createElement('div');
@@ -26,6 +27,7 @@ function anyadir(producto){
     visor.appendChild(div);
     contenedor.appendChild(visor);
     $Prod2ID[producto.name]=producto.product_id;
+    });
 }
 
 function datalist(nombre){
