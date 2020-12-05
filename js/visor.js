@@ -1,5 +1,5 @@
 function getVisor(){
-    //$Prod2ID={};
+    $Prod2ID={};
     fetch('/partials/datos.php').then(response => response.json()).then(data => anyadir(data));
 
 }
@@ -39,26 +39,19 @@ function datalist(nombre){
 function cambio_visor(elemento){
     nombre=elemento.value;
     id=$Prod2ID[nombre];
-    document.getElementById(id).scrollIntoView();
+    if(id){
+        document.getElementById(id).scrollIntoView();
+    }
 }
-function getVisor1(rows){
-    rows.forEach(producto => mostrar(producto));
-
-}
-function mostrar(producto){
-    var contenedor= document.getElementById("mincontainer");
-    var visor = document.getElementsByClassName("visor")[0];
-    var div = document.createElement('div');
-    div.id = producto.product_id;
-    div.className = "item";
-    var img = document.createElement('img');
-    img.src = producto.image;
-    img.width = 200;
-    img.height = 200;
-    var p = document.createElement('p');
-    p.textContent = producto.name + " " + producto.price + "€";
-    div.appendChild(img);
-    div.appendChild(p);
-    visor.appendChild(div);
-    contenedor.appendChild(visor);
+function mostrarPrecios(){
+    var min = document.getElementById('minimo').value;
+    var max = document.getElementById('maximo').value;
+    $Prod2ID={};
+    var visor = document.getElementsByClassName('visor')[0];
+    visor.innerHTML="";
+    var lista=document.getElementById("lista_productos");
+    var input = document.getElementById('input_list');
+    input.value="";
+    lista.innerHTML="";
+    fetch('/partials/precios.php?min='+min+'&max='+max).then(response => response.json()).then(data => anyadir(data));
 }

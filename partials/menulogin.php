@@ -5,7 +5,6 @@
 		<a href="./portal.php?action=info" id="nm"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
 		<a href="?action=home" id="nm"><i class="fa fa-home" aria-hidden="true"></i></a>
 		<a href='./portal.php?action=miscompras' id="nm"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-		<a href='./portal.php?action=busqueda_precios' id="nm"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<?php $login = json_encode($_COOKIE["login"]);?>
 		<a href='#' id="nm" onclick='mostrarCarrito(<?php echo "$login"?>)'><i class="fa fa-shopping-cart"></i></a>
 		<a href="./portal.php?action=nuevo_producto" id="nm"><i class="fa fa-plus" aria-hidden="true"></i></a>

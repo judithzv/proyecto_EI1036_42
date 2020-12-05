@@ -214,7 +214,7 @@ switch ($action) {
             VALUES (?,?,?);";
             $a=array($name, $price, $URL_image);
             ejecutarSQL($query, $a);
-            $central = "./partials/productos.php";
+            $central = "./partials/productos_visor.php";
 
         break;
 

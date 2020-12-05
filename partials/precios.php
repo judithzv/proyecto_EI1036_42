@@ -1,8 +1,10 @@
 <?php
 
+include(dirname(__FILE__)."/../includes/pdo_postgres0.php");
+
 $table = "productos";
-$min=$_POST['min'];
-$max=$_POST['max'];
+$min=$_GET['min'];
+$max=$_GET['max'];
 $query = "SELECT     * FROM      $table  where price>? and  price<? ";
 $a = array($min, $max);
 $rows=ejecutarSQL($query, $a);
@@ -20,20 +22,4 @@ foreach ($rows as $row){
 
 }
 
-$datos=json_encode($rows);
-if(empty($rows)){
-    echo "<div id='container'>";
-    echo "<div id='mincontainer'>";
-    echo "<h1>No hay productos con esos precios<h1>";
-    echo "</div></div>";
-}
-else{
-    echo "<body onload='getVisor1($datos)'>";
-    echo "<div id='container'>";
-    echo "<div id='mincontainer'>";
-    echo "<h1>Los productos entre $min € y $max € son:<h1>";
-    echo "</div></div>";
-    echo "<div class='visor'></div>";
-    echo "<script src='/../js/visor.js'></script></body>";
-}
-?>
+echo json_encode($rows);

@@ -91,6 +91,7 @@
     padding-right: 30px;
     overflow: auto;
     border: 10px solid #bd6830 ;
+    z-index: 1;
 
 }
 
@@ -214,8 +215,7 @@ h1 {
   }
   #mincontainer {
     background-image: url('../img/fondo_degradado.jpg');
-    height:470px;
-    width:450px;
+    width: 53%;
     border: 2px solid  #bd6830;
     border-radius: 3px;
     text-align: center;
@@ -225,6 +225,7 @@ h1 {
     font-size: 20px;
     
   }
+
   #botonaceptar{
     font-family: "Lucida Console", Courier, monospace;
     background-color: #4CAF50; /* Green */
@@ -474,8 +475,9 @@ td, th { width: 500px; height: 100px; margin: 10px 10px auto; text-align: center
     width: 200px;
     overflow-x: scroll;
     display:flex;
-    margin-top: 30px;
-    margin-left: 125px;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%
 }
 
 .item {
@@ -486,4 +488,9 @@ td, th { width: 500px; height: 100px; margin: 10px 10px auto; text-align: center
 
 .item button {
     margin:10px;
+}
+
+output {
+    margin-left: 0.5%;
+    position: absolute;
 }
