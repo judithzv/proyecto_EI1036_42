@@ -55,14 +55,13 @@ function mostrarPrecios(){
     lista.innerHTML="";
     fetch('/partials/precios.php?min='+min+'&max='+max).then(response => response.json()).then(data => {
         if(data.length==0){
-            var contenedor= document.getElementById("mincontainer");
             var visor = document.getElementsByClassName("visor")[0];
-            var div = document.createElement('div');
-            var vacio=document.createElement('p');
-            vacio.textContent="No existen productos en ese rango de precios."
-            div.appendChild(vacio);
-            visor.appendChild(div);
-            contenedor.appendChild(visor);
+            visor.style.display="none";
+            var contenedor= document.getElementById("mincontainer");
+            var alerta=document.createElement('div');
+            alerta.className='alert alert-danger alert-dismissable';
+            alerta.innerHTML= 'No existen productos en ese rango de precios <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+            contenedor.appendChild(alerta);
 
         }
         else 
