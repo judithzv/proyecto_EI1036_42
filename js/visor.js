@@ -53,5 +53,19 @@ function mostrarPrecios(){
     var input = document.getElementById('input_list');
     input.value="";
     lista.innerHTML="";
-    fetch('/partials/precios.php?min='+min+'&max='+max).then(response => response.json()).then(data => anyadir(data));
+    fetch('/partials/precios.php?min='+min+'&max='+max).then(response => response.json()).then(data => {
+        if(data.length==0){
+            var contenedor= document.getElementById("mincontainer");
+            var visor = document.getElementsByClassName("visor")[0];
+            var div = document.createElement('div');
+            var vacio=document.createElement('p');
+            vacio.textContent="No existen productos en ese rango de precios."
+            div.appendChild(vacio);
+            visor.appendChild(div);
+            contenedor.appendChild(visor);
+
+        }
+        else 
+            anyadir(data)
+    });
 }
