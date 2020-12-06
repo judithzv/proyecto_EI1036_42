@@ -57,7 +57,7 @@ function mostrarPrecios(){
         if(data.length==0){
             var visor = document.getElementsByClassName("visor")[0];
             visor.style.display="none";
-            var contenedor= document.getElementById("mincontainer");
+            var contenedor= document.getElementById("container");
             var alerta=document.createElement('div');
             alerta.className='alert alert-danger alert-dismissable';
             alerta.innerHTML= 'No existen productos en ese rango de precios <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
