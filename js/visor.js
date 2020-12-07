@@ -5,29 +5,45 @@ function getVisor(){
 }
 
 function anyadir(productos){
-    productos.forEach(producto => {
-    var contenedor= document.getElementById("mincontainer");
-    var visor = document.getElementsByClassName("visor")[0];
-    var div = document.createElement('div');
-    div.id = producto.product_id;
-    div.className = "item";
-    var img = document.createElement('img');
-    img.src = producto.image;
-    img.width = 200;
-    img.height = 200;
-    var p = document.createElement('p');
-    p.textContent = producto.name + " " + producto.price + "€";
-    datalist(producto.name);
-    var button = document.createElement('button');
-    button.textContent = "Comprar";
-    button.addEventListener('click', function(){add_product(producto)});
-    div.appendChild(img);
-    div.appendChild(p);
-    div.appendChild(button);
-    visor.appendChild(div);
-    contenedor.appendChild(visor);
-    $Prod2ID[producto.name]=producto.product_id;
+        productos.forEach(producto => {
+        var contenedor= document.getElementById("mincontainer");
+        var visor = document.getElementsByClassName("visor")[0];
+        var div = document.createElement('div');
+        div.id = producto.product_id;
+        div.className = "item";
+        var img = document.createElement('img');
+        img.src = producto.image;
+        img.width = 200;
+        img.height = 200;
+        var p = document.createElement('p');
+        p.textContent = producto.name + " " + producto.price + "€";
+        datalist(producto.name);
+        var button = document.createElement('button');
+        button.textContent = "Comprar";
+        button.addEventListener('click', function(){add_product(producto)});
+        div.appendChild(img);
+        div.appendChild(p);
+        div.appendChild(button);
+        visor.appendChild(div);
+        contenedor.appendChild(visor);
+        $Prod2ID[producto.name]=producto.product_id;
     });
+
+    if(productos.length == 0){
+        var div = document.createElement('div');
+        div.id = 'inner-message';
+        div.className = "alert alert-warning alert-dismissable";
+        div.textContent = "No hay productos en ese rango de precios";
+        var link = document.createElement('a');
+        link.href="#";
+        link.className = "close";
+        link.setAttribute("data-dismiss", "alert");
+        link.setAttribute("aria-label", close);
+        link.innerHTML = "&times;";
+        div.appendChild(link);
+        var container = document.getElementById("message_container");
+        container.appendChild(div);
+    }
 }
 
 function datalist(nombre){
