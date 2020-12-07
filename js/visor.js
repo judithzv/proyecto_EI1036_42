@@ -69,18 +69,6 @@ function mostrarPrecios(){
     var input = document.getElementById('input_list');
     input.value="";
     lista.innerHTML="";
-    fetch('/partials/precios.php?min='+min+'&max='+max).then(response => response.json()).then(data => {
-        if(data.length==0){
-            var visor = document.getElementsByClassName("visor")[0];
-            visor.style.display="none";
-            var contenedor= document.getElementById("container");
-            var alerta=document.createElement('div');
-            alerta.className='alert alert-danger alert-dismissable';
-            alerta.innerHTML= 'No existen productos en ese rango de precios <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
-            contenedor.appendChild(alerta);
-
-        }
-        else 
-            anyadir(data)
+    fetch('/partials/precios.php?min='+min+'&max='+max).then(response => response.json()).then(data => {anyadir(data)
     });
 }
